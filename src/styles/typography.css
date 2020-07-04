@@ -39,7 +39,6 @@ body h5,
 body h6 {
   @apply tracking-normal;
   @apply leading-tight;
-  @apply font-bold;
 }
 body h4,
 body h5,
@@ -139,20 +138,21 @@ body table {
 }
 
 body table th {
-  font-weight: bold;
+  @apply font-bold;
 }
 
 body table th,
 body table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
+  @apply py-2;
+  @apply px-3;
+  @apply border;
+  @apply border-gray-300;
 }
 
 body table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+  @apply bg-white;
 }
 
 body table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  @apply bg-gray-100;
 }
