@@ -10,3 +10,9 @@
 .blog-post img {
   @apply mr-auto;
 }
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3 {
+  @apply mt-3;
+}
