@@ -1,0 +1,12 @@
+.blog-post {
+  @apply mt-2;
+  @apply text-base;
+}
+.blog-post p {
+  @apply mb-2;
+  @apply text-justify;
+  @apply tracking-tight;
+}
+.blog-post img {
+  @apply mr-auto;
+}

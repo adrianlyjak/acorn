@@ -1,0 +1,158 @@
+/** 
+ * emphasis
+ */
+
+body strong {
+  @apply font-bold;
+}
+
+/** 
+ * anchors
+ */
+
+body a {
+  @apply text-blue-500;
+}
+
+body a:hover,
+body a:active {
+  @apply underline;
+}
+
+/** 
+ * line rules
+ */
+
+body hr {
+  @apply my-3;
+}
+
+/** 
+ * headings
+ */
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  @apply tracking-normal;
+  @apply leading-tight;
+  @apply font-bold;
+}
+body h4,
+body h5,
+body h6 {
+  @apply leading-relaxed;
+}
+
+body h1 {
+  @apply text-4xl;
+}
+
+body h2 {
+  @apply text-3xl;
+}
+
+body h3 {
+  @apply text-2xl;
+}
+
+body h4 {
+  @apply text-xl;
+}
+
+body h5 {
+  @apply text-lg;
+}
+
+body h6 {
+  @apply text-base;
+}
+
+/** 
+ * code
+ */
+
+body pre {
+  overflow: auto;
+}
+
+body code,
+body kbd,
+body pre {
+  @apply font-mono;
+}
+
+body code {
+  @apply text-gray-700;
+  @apply text-sm;
+}
+
+body pre {
+  @apply overflow-auto;
+  @apply leading-tight;
+  @apply bg-gray-200;
+  @apply p-2;
+  @apply text-sm;
+  @apply rounded-sm;
+}
+
+/** 
+ * blockquotes 
+ */
+
+body blockquote {
+  @apply px-3;
+  @apply text-gray-600;
+  @apply border-l-4;
+  @apply border-gray-300;
+}
+
+/** 
+ * lists 
+ */
+
+body ul {
+  @apply list-disc;
+  @apply pl-4;
+}
+body ol {
+  @apply list-decimal;
+  @apply pl-4;
+}
+
+body ol ol {
+  @apply list-alpha;
+}
+body ol ol ol {
+  @apply list-roman;
+}
+
+/** 
+ * tables 
+ */
+body table {
+  @apply block;
+  @apply w-full;
+}
+
+body table th {
+  font-weight: bold;
+}
+
+body table th,
+body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
