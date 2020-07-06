@@ -1,8 +1,8 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
-featuredimage: ./salty_egg.jpg
+date: 2015-05-01T22:12:03.284Z
+description: Hello World
+featuredimage: screenshot-from-2020-04-04-21-23-46.png
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -21,3 +21,6 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./salty_egg.jpg)
+
+
+Yucky Yucky Yucky!
