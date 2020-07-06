@@ -5,14 +5,24 @@
 @tailwind utilities;
 
 html {
-  font-size: 20px; /* set the relative size for rems. Browser default is 16px, so this makes things bigger */
-  @apply font-serif;
+  font-size: 16px; /* set the relative size for rems. Browser default is 16px, so this makes things bigger */
+  @apply font-body;
+  @apply text-gray-800;
 }
 
-@screen lg {
+html,
+body,
+#___gatsby,
+#___gatsby #gatsby-focus-wrapper {
+  @apply h-full;
+  @apply min-h-full;
+}
+
+@screen md {
   html {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
 @import "./typography.css";
+@import "./layout.css";

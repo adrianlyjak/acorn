@@ -5,18 +5,76 @@ import { createFilePath } from "gatsby-source-filesystem";
 const gatsbyNode: GatsbyNode = {
   onCreateNode({ node, getNode, actions }) {
     if (node.internal.type === "MarkdownRemark") {
-      const value = createFilePath({ node, getNode });
+      const relativeFilePath = createFilePath({
+        node,
+        getNode,
+      });
+
       actions.createNodeField({
         name: "slug",
         node,
-        value,
+        value: `p${relativeFilePath}`,
       });
     }
   },
   async createPages(args) {
     await createBlogs(args);
+    await createBlogList(args);
   },
 };
+
+async function createBlogList({
+  graphql,
+  actions: { createPage },
+}: CreatePagesArgs & {
+  traceId: "initial-createPages";
+}) {
+  const blogList = path.resolve(
+    `${__dirname}/../src/templates/BlogListPage.tsx`
+  );
+  const totalBlogsData = await graphql(`
+    {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
+  const blogCount = (totalBlogsData.data as any).allMarkdownRemark.edges.length;
+  const PAGE_SIZE = 3;
+  const pageCount = Math.ceil(blogCount / PAGE_SIZE);
+  for (let i = 0; i < pageCount; i++) {
+    console.log("create page " + i + " of " + pageCount);
+    if (i === 0) {
+      createPage({
+        path: ``,
+        component: blogList,
+        context: {
+          page: i,
+          skip: i * PAGE_SIZE,
+          limit: PAGE_SIZE,
+        },
+      });
+    }
+    createPage({
+      path: `posts/${i}`,
+      component: blogList,
+      context: {
+        page: i,
+        skip: i * PAGE_SIZE,
+        limit: PAGE_SIZE,
+      },
+    });
+  }
+}
 
 async function createBlogs({
   graphql,
@@ -24,14 +82,13 @@ async function createBlogs({
 }: CreatePagesArgs & {
   traceId: "initial-createPages";
 }) {
-  const blogPost = path.resolve(`${__dirname}/../src/templates/BlogPost.tsx`);
+  const blogPost = path.resolve(
+    `${__dirname}/../src/templates/BlogPostPage.tsx`
+  );
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               fields {

@@ -1,5 +1,8 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import Page from "../components/Page";
+import BlogList from "../components/BlogList";
+import BlogPagination from "../components/BlogPagination";
 
 // Please note that you can use https://github.com/dotansimha/graphql-code-generator
 // to generate all types from graphQL schema
@@ -19,23 +22,43 @@ export default class extends React.Component<IndexPageProps, {}> {
   }
   public render() {
     return (
-      <div>
-        <h1>Hi people</h1>
-        <p>
-          Welcome to your new{" "}
-          <strong>{this.props.data.site.siteMetadata.title}</strong> site.
-        </p>
-        <p>Now go build something great.</p>
-      </div>
+      <Page>
+        <RecentBlogs />
+      </Page>
     );
   }
 }
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
+function RecentBlogs() {
+  const blogs: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          fields: { slug: string };
+          frontmatter: { title: string; date: string };
+        };
+      }[];
+    };
+  } = useStaticQuery(recentBlogs);
+
+  return (
+    <>
+      <BlogList blogs={blogs.allMarkdownRemark.edges.map((x) => x.node)} />
+      <BlogPagination pageIndex={0} pageSize={3} />
+    </>
+  );
+}
+
+const recentBlogs = graphql`
+  query RecentBlogsQuery {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      edges {
+        node {
+          ...BlogSummary
+        }
       }
     }
   }

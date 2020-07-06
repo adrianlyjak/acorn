@@ -1,7 +1,18 @@
 TODO
 
 - list view
-- header nav
 - home page
 - admin
-- markdown element styling
+
+- header nav
+
+  - display font
+  - home icon
+
+- style
+  - color palettes
+  - card component
+
+* logo
+* category pages
+* dark light mode
