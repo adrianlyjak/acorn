@@ -1,6 +1,8 @@
 ---
 title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+date: 2015-05-06T23:46:37.121Z
+description: Wow so much words
+featuredimage: doors.png
 ---
 
 Wow! I love blogging so much already.
