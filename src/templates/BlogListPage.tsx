@@ -13,7 +13,7 @@ export default function BlogListPage(props: any) {
   return (
     <Page>
       <BlogList blogs={blogs} />
-      <BlogPagination pageIndex={page} pageSize={2} />
+      <BlogPagination pageIndex={page} />
     </Page>
   );
 }

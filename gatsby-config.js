@@ -3,7 +3,7 @@ const path = require("path");
 const config = {
   siteMetadata: {
     title: "Gatsby Acorn",
-    foo: "bar",
+    pageSize: 24,
   },
   plugins: [
     // redirects to the gatsby config directory and addstypescript support
@@ -15,6 +15,7 @@ const config = {
     },
     "gatsby-plugin-postcss", // for tailwind
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-source-filesystem",
       options: {

@@ -48,19 +48,29 @@ async function createBlogList({
       }
     }
   `);
+  const pageSizeResponse = await graphql(`
+    {
+      site {
+        siteMetadata {
+          pageSize
+        }
+      }
+    }
+  `);
+  const pageSize = (pageSizeResponse.data as any).site.siteMetadata
+    .pageSize as number;
   const blogCount = (totalBlogsData.data as any).allMarkdownRemark.edges.length;
-  const PAGE_SIZE = 3;
-  const pageCount = Math.ceil(blogCount / PAGE_SIZE);
+  const pageCount = Math.ceil(blogCount / pageSize);
   for (let i = 0; i < pageCount; i++) {
     console.log("create page " + i + " of " + pageCount);
     if (i === 0) {
       createPage({
-        path: ``,
+        path: `/`,
         component: blogList,
         context: {
           page: i,
-          skip: i * PAGE_SIZE,
-          limit: PAGE_SIZE,
+          skip: i * pageSize,
+          limit: pageSize,
         },
       });
     }
@@ -69,8 +79,8 @@ async function createBlogList({
       component: blogList,
       context: {
         page: i,
-        skip: i * PAGE_SIZE,
-        limit: PAGE_SIZE,
+        skip: i * pageSize,
+        limit: pageSize,
       },
     });
   }
