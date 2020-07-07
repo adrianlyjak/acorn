@@ -1,5 +1,6 @@
-import * as React from "react";
 import { Link } from "gatsby";
+import * as React from "react";
+import useSiteTitle from "./useSiteTitle";
 
 const pages: { label: string; to: string }[] = [
   // {
@@ -13,6 +14,7 @@ const pages: { label: string; to: string }[] = [
 ];
 
 export default function Nav(props: {}) {
+  const title = useSiteTitle();
   return (
     <div className="flex flex-row justify-between">
       <div className="flex-1 flex flex-row items-stretch">
@@ -21,7 +23,7 @@ export default function Nav(props: {}) {
           className="text-gray-600 hover:text-gray-800"
           activeClassName="text-gray-800"
         >
-          <span className="font-info text-lg ">Homecraft: Life is Art</span>
+          <span className="font-info text-lg ">{title}</span>
         </Link>
       </div>
       <div className="flex flex-row">

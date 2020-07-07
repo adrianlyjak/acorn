@@ -11,7 +11,7 @@ export default function BlogPost(props: { data: any; pageResources: any }) {
   return (
     <Page>
       <Helmet title={pageTitle} />
-      <div className="p-2 lg:p-8 bg-gray-100 shadow-md mb-16 overflow-auto">
+      <div className="p-2 lg:p-8 bg-white shadow-md mb-16 overflow-auto">
         <article>
           <h1 className="m-0 mt-4 leading-snug">{post.frontmatter.title}</h1>
           <div className="text-sm text-mode-info mb-8">

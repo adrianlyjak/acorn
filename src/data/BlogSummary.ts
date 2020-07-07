@@ -28,6 +28,6 @@ export const query = graphql`
         publicURL
       }
     }
-    excerpt
+    excerpt(pruneLength: 1000)
   }
 `;

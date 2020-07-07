@@ -189,9 +189,22 @@ body table tr:nth-child(2n) {
   @apply bg-gray-100;
 }
 
-/** utility */
+/** utility 
+TODO - probably a better / more composable way to do this with tailwind
+*/
 .text-mode-info {
   @apply font-info;
   @apply uppercase;
   @apply font-medium;
+}
+
+/** line clamping */
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.text-indent {
+  text-indent: 1.5rem;
 }

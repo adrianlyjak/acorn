@@ -2,7 +2,7 @@ const path = require("path");
 
 const config = {
   siteMetadata: {
-    title: "Gatsby Acorn",
+    title: "Homecraft: Life is Art",
     pageSize: 24,
   },
   plugins: [
