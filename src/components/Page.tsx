@@ -14,7 +14,7 @@ export default function Page(props: { children: any }) {
       <Helmet title={title}>
         <link rel="icon" href={favicon} />
       </Helmet>
-      <div className="w-full bg-gray-200 min-h-full h-full overflow-auto pb-4 flex flex-col items-stretch">
+      <div className="w-full bg-warmgray-200 min-h-full h-full overflow-auto pb-4 flex flex-col items-stretch">
         <div className="max-w-screen-lg m-auto flex-1 w-full">
           <div className="my-6 px-2">
             <Nav />

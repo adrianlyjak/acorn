@@ -1,4 +1,5 @@
-const { colors } = require("tailwindcss/defaultTheme");
+// const { colors } = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./src/**/*.css", "./src/**/*.tsx"],
@@ -11,6 +12,7 @@ module.exports = {
       },
       colors: {
         primary: colors.pink,
+        warmgray: colors.warmGray,
       },
       fontFamily: {
         body: ["serif"],
