@@ -23,7 +23,7 @@ export default function Page(props: { children: any }) {
             <div className="bg-neutral-300 border-b-16 border-t-16 border-neutral-500 flex-1"></div>
           </div>
           <div className="bg-neutral-50 lg:border-r-16 border-b-16 border-t-16 border-neutral-200 max-w-screen-lg m-auto">
-            <div className="mb-6 mt-3 px-2">
+            <div className="mb-3 mt-3 px-3">
               <Nav />
             </div>
             <div className="mx-3 lg:mx-6 lg:mt-2">{props.children}</div>

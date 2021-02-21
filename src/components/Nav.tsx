@@ -13,22 +13,6 @@ const pages: { label: string; to: string }[] = [
   // },
 ];
 
-function Dot({
-  size = 3,
-  color = "warmgray-500",
-  className = "",
-}: {
-  size?: number;
-  color?: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`inline-block rounded bg-${color} h-${size} w-${size} rounded-full ${className}`}
-    />
-  );
-}
-
 export default function Nav(props: {}) {
   const title = useSiteTitle();
   return (
@@ -36,10 +20,10 @@ export default function Nav(props: {}) {
       <div className="flex-1 flex flex-row items-stretch">
         <Link to="/">
           <div className="">
-            <Dot size={12} color="terracotta-500"></Dot>
-            <Dot className="ml-2 mb-1"></Dot>
-            <Dot className="ml-4 mb-1"></Dot>
-            <Dot className="ml-4 mb-1"></Dot>
+            <div className="inline-block bg-terracotta-500 h-12 w-12 rounded-full" />
+            <div className="inline-block bg-warmgray-500   h-3  w-3 rounded-full ml-2 mb-1" />
+            <div className="inline-block bg-warmgray-500   h-3  w-3 rounded-full ml-4 mb-1" />
+            <div className="inline-block bg-warmgray-500   h-3  w-3 rounded-full ml-4 mb-1" />
           </div>
         </Link>
       </div>

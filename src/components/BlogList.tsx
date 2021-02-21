@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { BlogSummary } from "../data/BlogSummary";
 import "./BlogList.css";
-import Card from "./Card";
 
 export default function BlogList(props: { blogs: BlogSummary[] }) {
   return (
@@ -26,7 +25,13 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
         return (
           <div key={i}>
             <Link to={"/" + blog.fields.slug}>
-              <Card className="flex flex-col md:flex-row items-stretch mb-6 overflow-hidden">
+              <div
+                className={
+                  "flex flex-col md:flex-row items-stretch py-3 hover:bg-neutral-100 overflow-hidden " +
+                  "border-terracotta-50 border-dashed border-t-2 " +
+                  (i === props.blogs.length - 1 ? "border-b-2 " : "")
+                }
+              >
                 {!imageUrl ? (
                   <div className="p-4 max-h-full pb-4 overflow-hidden flex flex-col ">
                     {textElement}
@@ -43,7 +48,7 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
                     </div>
                   </>
                 )}
-              </Card>
+              </div>
             </Link>
           </div>
         );
