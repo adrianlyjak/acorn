@@ -28,16 +28,20 @@ body p {
   @apply text-justify;
   @apply leading-snug;
 }
-body p + p {
-  @apply mt-2;
+
+body p,
+body ul,
+body ol {
+  @apply mb-4;
 }
+
 /** 
  * line rules
  */
 
 body hr {
   @apply my-3;
-  @apply border-gray-400;
+  @apply border-warmgray-400;
 }
 
 /** 
@@ -57,47 +61,47 @@ body h6 {
 body * + h1,
 body * + h2,
 body * + h3 {
-  @apply mt-3;
+  @apply mt-6;
 }
 body h1,
 body h2,
 body h3 {
-  @apply mb-2;
+  @apply mb-3;
 }
 
 body * + h4,
 body * + h5,
 body * + h6 {
-  @apply mt-2;
+  @apply mt-4;
 }
 body h4,
 body h5,
 body h6 {
-  @apply mb-1;
+  @apply mb-2;
 }
 
 body h1 {
-  @apply text-4xl;
+  @apply text-5xl;
 }
 
 body h2 {
-  @apply text-3xl;
+  @apply text-4xl;
 }
 
 body h3 {
-  @apply text-2xl;
+  @apply text-3xl;
 }
 
 body h4 {
-  @apply text-xl;
+  @apply text-2xl;
 }
 
 body h5 {
-  @apply text-lg;
+  @apply text-xl;
 }
 
 body h6 {
-  @apply text-base;
+  @apply text-lg;
 }
 
 /** 
@@ -115,14 +119,14 @@ body pre {
 }
 
 body code {
-  @apply text-gray-700;
+  @apply text-warmgray-700;
   @apply text-sm;
 }
 
 body pre {
   @apply overflow-auto;
   @apply leading-tight;
-  @apply bg-gray-200;
+  @apply bg-neutral-200;
   @apply p-2;
   @apply text-sm;
   @apply rounded-sm;
@@ -134,10 +138,10 @@ body pre {
 
 body blockquote {
   @apply px-3;
-  @apply my-3;
-  @apply text-gray-600;
+  @apply my-6;
+  @apply text-warmgray-600;
   @apply border-l-4;
-  @apply border-gray-300;
+  @apply border-warmgray-500;
 }
 
 /** 
@@ -178,7 +182,7 @@ body table td {
   @apply py-2;
   @apply px-3;
   @apply border;
-  @apply border-gray-300;
+  @apply border-neutral-300;
 }
 
 body table tr {
@@ -186,7 +190,7 @@ body table tr {
 }
 
 body table tr:nth-child(2n) {
-  @apply bg-gray-100;
+  @apply bg-neutral-50;
 }
 
 /** utility 

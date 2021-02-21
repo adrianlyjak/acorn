@@ -7,7 +7,7 @@
 html {
   font-size: 16px; /* set the relative size for rems. Browser default is 16px, so this makes things bigger */
   @apply font-body;
-  @apply text-gray-800;
+  @apply text-warmgray-700;
 }
 
 html,

@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Page from "../components/Page";
 import MarkdownPost from "../components/MarkdownPost";
 import { Helmet } from "react-helmet";
+import PageCard from "../components/PageCard";
 
 export default function BlogPost(props: { data: any; pageResources: any }) {
   const post = props.data.markdownRemark;
@@ -11,15 +12,15 @@ export default function BlogPost(props: { data: any; pageResources: any }) {
   return (
     <Page>
       <Helmet title={pageTitle} />
-      <div className="p-2 lg:p-8 bg-white shadow-md mb-16 overflow-auto">
+      <PageCard className="p-2 lg:p-8">
         <article>
-          <h1 className="m-0 mt-4 leading-snug">{post.frontmatter.title}</h1>
+          <h1 className="m-0 leading-snug">{post.frontmatter.title}</h1>
           <div className="text-sm text-mode-info mb-8">
             {post.frontmatter.date}
           </div>
           <MarkdownPost post={post.html} />
         </article>
-      </div>
+      </PageCard>
     </Page>
   );
 }

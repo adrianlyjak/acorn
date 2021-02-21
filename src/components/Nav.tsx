@@ -13,17 +13,34 @@ const pages: { label: string; to: string }[] = [
   // },
 ];
 
+function Dot({
+  size = 3,
+  color = "warmgray-500",
+  className = "",
+}: {
+  size?: number;
+  color?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`inline-block rounded bg-${color} h-${size} w-${size} rounded-full ${className}`}
+    />
+  );
+}
+
 export default function Nav(props: {}) {
   const title = useSiteTitle();
   return (
     <div className="flex flex-row justify-between">
       <div className="flex-1 flex flex-row items-stretch">
-        <Link
-          to="/"
-          className="text-gray-600 hover:text-gray-800"
-          activeClassName="text-gray-800"
-        >
-          <span className="font-info text-lg ">{title}</span>
+        <Link to="/">
+          <div className="">
+            <Dot size={12} color="terracotta-500"></Dot>
+            <Dot className="ml-2 mb-1"></Dot>
+            <Dot className="ml-4 mb-1"></Dot>
+            <Dot className="ml-4 mb-1"></Dot>
+          </div>
         </Link>
       </div>
       <div className="flex flex-row">

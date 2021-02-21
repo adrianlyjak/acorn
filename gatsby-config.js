@@ -2,7 +2,7 @@ const path = require("path");
 
 const config = {
   siteMetadata: {
-    title: "Homecraft: Life is Art",
+    title: "Adrian Lyjak",
     pageSize: 24,
   },
   plugins: [
