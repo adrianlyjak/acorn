@@ -1,5 +1,5 @@
 import path from "path";
-import { GatsbyNode, CreatePagesArgs } from "gatsby";
+import { GatsbyNode, CreatePagesArgs, CreatePageArgs } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
 
 const gatsbyNode: GatsbyNode = {
@@ -18,8 +18,8 @@ const gatsbyNode: GatsbyNode = {
     }
   },
   async createPages(args) {
-    await createBlogs(args);
-    await createBlogList(args);
+    // await createBlogs(args);
+    // await createBlogList(args);
   },
 };
 
