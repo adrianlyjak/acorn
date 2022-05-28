@@ -49,13 +49,13 @@ function getOffset(
   // center of circle
   const cx = rect.x + r;
   const cy = rect.y + r;
-  // distance from cursor
+  // screen distance from center to cursor
   const mx = cursor.clientX - cx;
   const my = cursor.clientY - cy;
   const mr = Math.sqrt(Math.pow(mx, 2) + Math.pow(my, 2));
   // keep the pupil in the eye
   const maxOffset = r * 0.7;
-  const constrain = mr > maxOffset ? maxOffset / mr : 0.7;
+  const constrain = mr > maxOffset ? maxOffset / mr : 1;
   // pupil screen offset from center of eye
   const px = mx * constrain;
   const py = my * constrain;
@@ -74,81 +74,85 @@ function OpenMojiRollingEyes({
 }) {
   // https://openmoji.org/library/
   return (
-    <svg
-      ref={svgRef}
-      id="emoji"
-      viewBox="0 0 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g id="color">
-        <circle cx="36" cy="36" r="23" fill="#EAE17D" />
-        <circle cx="46" cy="32" r="6.5" fill="#FFFFFF" />
-        <circle cx="26" cy="32" r="6.5" fill="#FFFFFF" />
-      </g>
-      <g id="hair" />
-      <g id="skin" />
-      <g id="skin-shadow" />
-      <g id="line">
-        {/* left */}
-        <circle
-          id="left-pupil"
-          cx="42.0556"
-          cy="32"
-          r="2.5556"
-          fill="#222222"
-        />
-        <circle
-          id="right-pupil"
-          cx="22.0556"
-          cy="32"
-          r="2.5556"
-          fill="#222222"
-        />
-        <circle
-          id="head"
-          cx="36"
-          cy="36"
-          r="23"
-          fill="none"
-          stroke="#222222"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="2"
-        />
-        <circle
-          id="right-eye"
-          cx="46"
-          cy="32"
-          r="6.5"
-          fill="none"
-          stroke="#222222"
-          stroke-miterlimit="10"
-          stroke-width="2"
-        />
-        <circle
-          id="left-eye"
-          cx="26"
-          cy="32"
-          r="6.5"
-          fill="none"
-          stroke="#222222"
-          stroke-miterlimit="10"
-          stroke-width="2"
-        />
-        <line
-          x1="31"
-          x2="41"
-          y1="49.4967"
-          y2="49.4967"
-          fill="none"
-          stroke="#222222"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="2"
-        />
-      </g>
-    </svg>
+    <div>
+      <svg
+        ref={svgRef}
+        id="emoji"
+        viewBox="0 0 72 72"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="color">
+          <circle cx="35" cy="33" r="23" fill="#aeded7" />
+          <circle cx="38" cy="37" r="23" fill="#efa8bc" />
+          <circle cx="33" cy="39" r="23" fill="#EAE17D" />
+          <circle cx="46" cy="32" r="6.5" fill="#FFFFFF" />
+          <circle cx="26" cy="32" r="6.5" fill="#FFFFFF" />
+        </g>
+        <g id="hair" />
+        <g id="skin" />
+        <g id="skin-shadow" />
+        <g id="line">
+          {/* left */}
+          <circle
+            id="left-pupil"
+            cx="42.0556"
+            cy="32"
+            r="2.5556"
+            fill="#222222"
+          />
+          <circle
+            id="right-pupil"
+            cx="22.0556"
+            cy="32"
+            r="2.5556"
+            fill="#222222"
+          />
+          <circle
+            id="head"
+            cx="36"
+            cy="36"
+            r="23"
+            fill="none"
+            stroke="#222222"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <circle
+            id="right-eye"
+            cx="46"
+            cy="32"
+            r="6.5"
+            fill="none"
+            stroke="#222222"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <circle
+            id="left-eye"
+            cx="26"
+            cy="32"
+            r="6.5"
+            fill="none"
+            stroke="#222222"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <line
+            x1="31"
+            x2="41"
+            y1="49.4967"
+            y2="49.4967"
+            fill="none"
+            stroke="#222222"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </div>
   );
 }
