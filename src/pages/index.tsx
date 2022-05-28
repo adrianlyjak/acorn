@@ -7,9 +7,7 @@ export default function UnderConstruction(props: any) {
       <h1>Sorry!</h1>
       <h2>This site is under construction</h2>
       <div className="flex justify-center items-center">
-        <div className="d-inline-block">
-          <InteractiveEmoji />
-        </div>
+        <InteractiveEmoji />
       </div>
     </Page>
   );
