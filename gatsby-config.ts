@@ -1,18 +1,12 @@
-const path = require("path");
+import path from "path";
+import type { GatsbyConfig } from "gatsby";
 
-const config = {
+const config: GatsbyConfig = {  
   siteMetadata: {
     title: "Adrian Lyjak",
     pageSize: 24,
   },
   plugins: [
-    // redirects to the gatsby config directory and addstypescript support
-    {
-      resolve: "gatsby-plugin-ts-config",
-      options: {
-        configDir: "./gatsby",
-      },
-    },
     "gatsby-plugin-postcss", // for tailwind
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-netlify-cms",
