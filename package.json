@@ -9,6 +9,7 @@
     "@types/react-dom": "0.14.23",
     "@types/react-helmet": "^6.0.0",
     "autoprefixer": "^10.2.4",
+    "fs-extra": "^10.1.0",
     "gatsby": "^4.15.2",
     "gatsby-plugin-netlify-cms": "^6.15.0",
     "gatsby-plugin-postcss": "^5.15.0",
@@ -31,7 +32,6 @@
     "gatsby, typescript"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

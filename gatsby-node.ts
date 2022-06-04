@@ -2,25 +2,30 @@ import path from "path";
 import { GatsbyNode, CreatePagesArgs, CreatePageArgs } from "gatsby";
 import { createFilePath } from "gatsby-source-filesystem";
 
-const gatsbyNode: GatsbyNode = {
-  onCreateNode({ node, getNode, actions }) {
-    if (node.internal.type === "MarkdownRemark") {
-      const relativeFilePath = createFilePath({
-        node,
-        getNode,
-      });
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({
+  node,
+  getNode,
+  actions,
+}) => {
+  if (node.internal.type === "MarkdownRemark") {
+    const relativeFilePath = createFilePath({
+      node,
+      getNode,
+    });
 
-      actions.createNodeField({
-        name: "slug",
-        node,
-        value: `p${relativeFilePath}`,
-      });
-    }
-  },
-  async createPages(args) {
-    // await createBlogs(args);
-    // await createBlogList(args);
-  },
+    actions.createNodeField({
+      name: "slug",
+      node,
+      value: `p${relativeFilePath}`,
+    });
+  }
+};
+
+export const createPages: GatsbyNode["createPages"] = async function createPages(
+  args
+) {
+  await createBlogs(args);
+  await createBlogList(args);
 };
 
 async function createBlogList({
@@ -29,9 +34,7 @@ async function createBlogList({
 }: CreatePagesArgs & {
   traceId: "initial-createPages";
 }) {
-  const blogList = path.resolve(
-    `${__dirname}/../src/templates/BlogListPage.tsx`
-  );
+  const blogList = path.resolve(`${__dirname}/src/templates/BlogListPage.tsx`);
   const totalBlogsData = await graphql(`
     {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -62,7 +65,7 @@ async function createBlogList({
   const blogCount = (totalBlogsData.data as any).allMarkdownRemark.edges.length;
   const pageCount = Math.ceil(blogCount / pageSize);
   for (let i = 0; i < pageCount; i++) {
-    console.log("create page " + i + " of " + pageCount);
+    console.log("create page " + (i + 1) + " of " + pageCount);
     if (i === 0) {
       createPage({
         path: `/`,
@@ -92,9 +95,7 @@ async function createBlogs({
 }: CreatePagesArgs & {
   traceId: "initial-createPages";
 }) {
-  const blogPost = path.resolve(
-    `${__dirname}/../src/templates/BlogPostPage.tsx`
-  );
+  const blogPost = path.resolve(`${__dirname}/src/templates/BlogPostPage.tsx`);
   const result = await graphql(
     `
       {
@@ -134,5 +135,3 @@ async function createBlogs({
     });
   });
 }
-
-export default gatsbyNode;

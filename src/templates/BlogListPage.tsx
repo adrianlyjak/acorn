@@ -9,7 +9,7 @@ export default function BlogListPage(props: any) {
   const blogs = (props.data.allMarkdownRemark.edges as BlogSummaryNode[]).map(
     (x) => x.node
   );
-  const page = props.pathContext.page;
+  const page = props.pageContext.page;
   return (
     <Page>
       <BlogList blogs={blogs} />
