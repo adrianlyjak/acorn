@@ -4,7 +4,7 @@ import { throttle } from "lodash";
 import "./InteractiveEmoji.css";
 
 export function InteractiveEmoji() {
-  const svg = useRef<SVGSVGElement | undefined>(undefined);
+  const svg = useRef<SVGSVGElement>((null as any) as SVGSVGElement);
 
   useEffect(() => {
     document.body.classList.add("fly");
@@ -61,8 +61,8 @@ function getOffset(
   const py = my * constrain;
   // translate back to svg units
   const ratio = el.r.baseVal.value / r;
-  const sx = px * ratio + Number.parseFloat(el.getAttribute("cx"));
-  const sy = py * ratio + Number.parseFloat(el.getAttribute("cy"));
+  const sx = px * ratio + Number.parseFloat(el.getAttribute("cx") || "0");
+  const sy = py * ratio + Number.parseFloat(el.getAttribute("cy") || "0");
 
   return { x: sx, y: sy };
 }
@@ -70,7 +70,7 @@ function getOffset(
 function OpenMojiRollingEyes({
   svgRef,
 }: {
-  svgRef?: React.Ref<SVGSVGElement | undefined>;
+  svgRef?: React.Ref<SVGSVGElement>;
 }) {
   // https://openmoji.org/library/
   return (

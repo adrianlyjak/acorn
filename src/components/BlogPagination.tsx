@@ -16,24 +16,29 @@ export default function BlogPagination({
   const next = !complete;
   return (
     <div className="font-info w-full flex flex-row justify-center items-center">
-      <Link
-        className={`py-2 px-6 inline-block text-3xl ${
-          previous ? "text-primary-500" : "text-gray-500"
-        }`}
-        to={previous ? `/posts/${pageIndex - 1}` : undefined}
-      >
+      <MaybeLink to={previous ? `/posts/${pageIndex - 1}` : undefined}>
         ←
-      </Link>
+      </MaybeLink>
       <span className="inline-block">page {pageIndex + 1}</span>
-      <Link
-        className={`py-2 px-6 inline-block text-3xl ${
-          next ? "text-primary-500" : "text-gray-500"
-        }`}
-        to={next ? `/posts/${pageIndex + 1}` : undefined}
-      >
-        →
-      </Link>
+      <MaybeLink to={next ? `/posts/${pageIndex + 1}` : undefined}>→</MaybeLink>
     </div>
+  );
+}
+
+function MaybeLink({
+  to,
+  children,
+}: {
+  to: string | undefined;
+  children: any;
+}) {
+  const classes = "py-2 px-6 inline-block text-3xl";
+  return to ? (
+    <Link className={`${classes} text-primary-500`} to={to}>
+      {children}
+    </Link>
+  ) : (
+    <a className={`${classes} text-gray-500`} href="" />
   );
 }
 
