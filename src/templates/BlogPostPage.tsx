@@ -12,7 +12,7 @@ export default function BlogPost(props: { data: any; pageResources: any }) {
   return (
     <Page>
       <Helmet title={pageTitle} />
-      <PageCard className="p-2 lg:p-8">
+      <PageCard>
         <article>
           <h1 className="m-0 leading-snug">{post.frontmatter.title}</h1>
           <div className="text-sm text-mode-info mb-8">

@@ -1,23 +1,23 @@
-.blog-img-crop-square {
-  height: 100%;
+.blog-summary-img {
+  height: 60%;
   /* position: relative; */
 }
 
-/* .blog-img-crop-square::after {
+/* .blog-summary-img::after {
   content: "";
   display: block;
   padding-bottom: 66%;
 } */
 
-.blog-img-crop-square > img {
+.blog-summary-img > img {
   /* position: absolute; */
   width: 100%;
-  height: 100%;
+  height: 60%;
   object-fit: cover;
 }
 
 /* @screen sm {
-  .blog-img-crop-square::after {
+  .blog-summary-img::after {
     padding-bottom: 100%;
   }
 } */

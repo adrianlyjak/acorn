@@ -1,10 +1,10 @@
 import path from "path";
 import type { GatsbyConfig } from "gatsby";
 
-const config: GatsbyConfig = {  
+const config: GatsbyConfig = {
   siteMetadata: {
     title: "Adrian Lyjak",
-    pageSize: 2,
+    pageSize: 12,
   },
   plugins: [
     "gatsby-plugin-postcss", // for tailwind
@@ -34,13 +34,11 @@ const config: GatsbyConfig = {
           },
           {
             resolve: "gatsby-remark-prismjs",
-            options: {
-              
-            }
-          }
+            options: {},
+          },
         ],
       },
-    }
+    },
   ],
 };
 module.exports = config;

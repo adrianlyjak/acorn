@@ -1,0 +1,10 @@
+.bg-stylized {
+  background: linear-gradient(
+    345deg,
+    white 0%,
+    white 15%,
+    var(--color-gray-100) 30%,
+    white 30%,
+    var(--color-gray-100) 100%
+  );
+}
