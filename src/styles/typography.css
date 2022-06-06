@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /** 
  * emphasis
  */
@@ -31,7 +27,6 @@ body p a:active,
 body p {
   @apply text-justify;
   @apply leading-snug;
-  @apply .text-indent;
 }
 
 body p,

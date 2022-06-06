@@ -11,7 +11,7 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
         const imageUrl = blog.frontmatter.featuredimage?.publicURL;
         return (
           <Link to={"/" + blog.fields.slug}>
-            <Card className="hover:bg-gray-200">
+            <Card className="hover:bg-gray-200 h-full">
               <article>
                 <div className="text-lg font-bold">
                   {blog.frontmatter.title}
@@ -20,13 +20,17 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
                   {blog.frontmatter.date}
                 </div>
                 {imageUrl ? (
-                  <div className="relative pb-2/3 bg-red-500">
+                  <div className="relative mt-2 pb-[50%] ">
                     <img
-                      className="absolute h-full w-full object-cover"
+                      className="absolute h-full w-full object-cover rounded-md"
                       src={imageUrl}
                     />
                   </div>
-                ) : null}
+                ) : (
+                  <div className="flex-auto max-h-36 mt-2 leading-6 overflow-hidden relative overflow-ellipsis overflow-clip line-clamp-5 text-justify px-2">
+                    {blog.excerpt}
+                  </div>
+                )}
               </article>
             </Card>
           </Link>
