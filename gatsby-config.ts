@@ -4,7 +4,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {  
   siteMetadata: {
     title: "Adrian Lyjak",
-    pageSize: 24,
+    pageSize: 2,
   },
   plugins: [
     "gatsby-plugin-postcss", // for tailwind
@@ -32,9 +32,15 @@ const config: GatsbyConfig = {
               maxWidth: 768,
             },
           },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              
+            }
+          }
         ],
       },
-    },
+    }
   ],
 };
 module.exports = config;

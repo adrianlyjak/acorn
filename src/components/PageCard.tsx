@@ -10,7 +10,7 @@ export default function PageCard({
   return (
     <div
       className={
-        "border-terracotta-300 border-dashed border-t-2 " +
+        "border-terracotta-100 border-solid border-t-2 " +
         "mb-16 overflow-auto " +
         (className || "")
       }

@@ -34,11 +34,13 @@ function MaybeLink({
 }) {
   const classes = "py-2 px-6 inline-block text-3xl";
   return to ? (
-    <Link className={`${classes} text-primary-500`} to={to}>
+    <Link className={`${classes} text-secondary-500`} to={to}>
       {children}
     </Link>
   ) : (
-    <a className={`${classes} text-gray-500`} href="" />
+    <span className={`${classes} text-tertiary-300 cursor-not-allowed`}>
+      {children}
+    </span>
   );
 }
 

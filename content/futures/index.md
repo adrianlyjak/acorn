@@ -1,3 +1,9 @@
+---
+title: Async Scala with Futures
+date: "2022-06-04T15:20:00.000Z"
+description: "Common syntactical pitfalls with async futures in scala"
+---
+
 # Writing code with Futures
 
 I frequently see people struggle with a few common scenarios when trying to
@@ -15,11 +21,8 @@ Things that implement these methods with these signatures are approximately
 
 ```scala
 trait MyMonad[Item] {
-
   def flatMap[Item2](fn: Item => MyMonad[Item2])): MyMonad[Item2]
-
   def map[Item2](fn: Item => Item2): MyMonad[Item2]
-
 }
 ```
 
@@ -57,7 +60,7 @@ def firstPizzaToppingName(pizzas: Seq[Pizza]): Option[String] = {
 Note, this can also be rewritten with a `flatMap` and `map`
 
 ```scala
-def randomPizzaTopping(pissaz: Seq[Pizza]): Option[String] = {
+def randomPizzaTopping(pizzas: Seq[Pizza]): Option[String] = {
   pizzas.headOption
     .flatMap { pizza =>
       pizza.toppings.headOption
@@ -87,7 +90,6 @@ def processPizzaOrder(pizza: Pizza): Future[String] = {
         .map { queued => processedPizza.id }
     }
 }
-
 ```
 
 what about this procedure thought?

@@ -3,3 +3,28 @@ body.fly {
       16 0,
     auto; /*!emojicursor.app*/
 }
+
+svg .iris {
+  fill: #ffffff;
+}
+
+svg .highlight-1 {
+  fill: var(--color-sage-400);
+}
+
+svg .highlight-2 {
+  fill: var(--color-terracotta-400);
+}
+
+svg .highlight-3 {
+  fill: var(--color-sand-400);
+}
+
+svg .line {
+  stroke: var(--color-gray-700);
+}
+
+svg #right-pupil,
+svg #left-pupil {
+  fill: var(--color-gray-700);
+}

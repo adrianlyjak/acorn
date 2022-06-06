@@ -81,11 +81,11 @@ function OpenMojiRollingEyes({
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="color">
-        <circle cx="35" cy="33" r="23" fill="#aeded7" />
-        <circle cx="38" cy="37" r="23" fill="#efa8bc" />
-        <circle cx="33" cy="39" r="23" fill="#EAE17D" />
-        <circle cx="46" cy="32" r="6.5" fill="#FFFFFF" />
-        <circle cx="26" cy="32" r="6.5" fill="#FFFFFF" />
+        <circle className="highlight-1" cx="34" cy="32" r="23" />
+        <circle className="highlight-2" cx="39" cy="38" r="23" />
+        <circle className="highlight-3" cx="33" cy="40" r="23" />
+        <circle className="iris" cx="46" cy="32" r="6.5" />
+        <circle className="iris" cx="26" cy="32" r="6.5" />
       </g>
       <g id="hair" />
       <g id="skin" />
@@ -112,7 +112,7 @@ function OpenMojiRollingEyes({
           cy="36"
           r="23"
           fill="none"
-          stroke="#222222"
+          className="line"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
@@ -124,7 +124,7 @@ function OpenMojiRollingEyes({
           cy="32"
           r="6.5"
           fill="none"
-          stroke="#222222"
+          className="line"
           strokeMiterlimit="10"
           strokeWidth="2"
         />
@@ -134,7 +134,7 @@ function OpenMojiRollingEyes({
           cy="32"
           r="6.5"
           fill="none"
-          stroke="#222222"
+          className="line"
           strokeMiterlimit="10"
           strokeWidth="2"
         />
@@ -144,7 +144,7 @@ function OpenMojiRollingEyes({
           y1="49.4967"
           y2="49.4967"
           fill="none"
-          stroke="#222222"
+          className="line"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"

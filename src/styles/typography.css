@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /** 
  * emphasis
  */
@@ -27,6 +31,7 @@ body p a:active,
 body p {
   @apply text-justify;
   @apply leading-snug;
+  @apply .text-indent;
 }
 
 body p,
@@ -41,7 +46,7 @@ body ol {
 
 body hr {
   @apply my-3;
-  @apply border-warmgray-400;
+  @apply border-gray-400;
 }
 
 /** 
@@ -119,14 +124,14 @@ body pre {
 }
 
 body code {
-  @apply text-warmgray-700;
+  @apply text-gray-700;
   @apply text-sm;
 }
 
 body pre {
   @apply overflow-auto;
   @apply leading-tight;
-  @apply bg-neutral-200;
+  @apply bg-sand-200;
   @apply p-2;
   @apply text-sm;
   @apply rounded-sm;
@@ -139,9 +144,9 @@ body pre {
 body blockquote {
   @apply px-3;
   @apply my-6;
-  @apply text-warmgray-600;
+  @apply text-gray-600;
   @apply border-l-4;
-  @apply border-warmgray-500;
+  @apply border-gray-500;
 }
 
 /** 
@@ -182,7 +187,7 @@ body table td {
   @apply py-2;
   @apply px-3;
   @apply border;
-  @apply border-neutral-300;
+  @apply border-sand-300;
 }
 
 body table tr {
@@ -190,7 +195,7 @@ body table tr {
 }
 
 body table tr:nth-child(2n) {
-  @apply bg-neutral-50;
+  @apply bg-sand-50;
 }
 
 /** utility 
