@@ -4,10 +4,10 @@ import Page from "../components/Page";
 import PageCard from "../components/PageCard";
 export default function UnderConstruction(props: any) {
   return (
-    <Page>
-      <PageCard pageType="stylized">
-        <h1>Sorry!</h1>
-        <h2>This site is under construction</h2>
+    <Page pageType="stylized">
+      <PageCard>
+        <h1 className="text-8xl mb-3">Sorry!</h1>
+        <h2 className="text-4xl">🚧 This site is under construction 🚧</h2>
         <div className="flex justify-center items-center">
           <InteractiveEmoji />
         </div>

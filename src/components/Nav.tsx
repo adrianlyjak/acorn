@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import * as React from "react";
+import SnazzNavButton from "./SnazzNavButton";
 import useSiteTitle from "./useSiteTitle";
 
 const pages: { label: string; to: string }[] = [
@@ -31,16 +32,13 @@ export default function Nav(props: {}) {
           </div>
         </Link>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row p-4">
         {pages.map(({ label, to }) => {
           return (
-            <Link
-              key={to}
-              className="text-center text-sand-600 hover:text-sand-800 flex-1 p-2 font-info uppercase text-sm tracking-widest whitespace-no-wrap"
-              activeClassName="text-sand-800"
-              to={to}
-            >
-              {label}
+            <Link key={to} to={to} activeClassName="active group">
+              <SnazzNavButton className="text-center whitespace-no-wrap">
+                {label}
+              </SnazzNavButton>
             </Link>
           );
         })}

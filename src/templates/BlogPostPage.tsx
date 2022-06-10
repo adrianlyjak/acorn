@@ -13,8 +13,10 @@ export default function BlogPost(props: { data: any; pageResources: any }) {
     <Page>
       <Helmet title={pageTitle} />
       <PageCard>
-        <article>
-          <h1 className="m-0 leading-snug">{post.frontmatter.title}</h1>
+        <article className="">
+          <h1 className="m-0 leading-snug text-4xl font-bold">
+            {post.frontmatter.title}
+          </h1>
           <div className="text-sm text-mode-info mb-8">
             {post.frontmatter.date}
           </div>

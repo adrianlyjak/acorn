@@ -1,5 +1,6 @@
 // const { colors } = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
+const plugin = require("tailwindcss/plugin");
 
 const customColors = {
   terracotta: {
@@ -70,7 +71,14 @@ module.exports = {
   variants: {},
   safelist: Object.keys(customColors)
     .concat(["gray"])
-    .map((name) => ({ pattern: new RegExp("bg-" + name) })),
+    .map((name) => ({ pattern: new RegExp("-" + name + "-") })),
 
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function ({ addVariant }) {
+      // Add a `third` variant, ie. `third:pb-0`
+      addVariant("active-state", "&.active");
+      addVariant("group-active-state", ":merge(.group).active &");
+    }),
+  ],
 };

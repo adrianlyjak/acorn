@@ -11,7 +11,7 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
         const imageUrl = blog.frontmatter.featuredimage?.publicURL;
         return (
           <Link to={"/" + blog.fields.slug}>
-            <Card className="hover:bg-gray-200 h-full">
+            <Card className="h-full">
               <article>
                 <div className="text-lg font-bold">
                   {blog.frontmatter.title}

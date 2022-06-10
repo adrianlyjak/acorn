@@ -10,8 +10,8 @@ export default function Palette(): React.ReactElement {
   const colors = groupBy(getColorInfo(), "name");
   const colorNames = Object.entries(colors);
   return (
-    <Page>
-      <PageCard pageType="stylized" className="p-2 lg:p-8">
+    <Page pageType="stylized">
+      <PageCard>
         <div className="p-4">
           {colorNames.map(([color, values]) => {
             return (
@@ -39,7 +39,7 @@ function ColorBlock({
   const textValue = value > 500 ? 300 : value > 300 ? 800 : 600;
   return (
     <div
-      className={`h-10 bg-${color}-${value} grid place-items-center hover:bg-${color}-${textValue} text-${color}-${textValue} hover:text-${color}-${value}`}
+      className={`h-10 bg-${color}-${value} grid place-items-center text-${color}-${textValue}`}
     >
       <span className={`inline-block text-xs`}>{hex.toUpperCase()}</span>
     </div>
