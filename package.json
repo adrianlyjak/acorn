@@ -33,7 +33,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "npm run typecheck && npm run format:lint && gatsby build",
+    "build": "npm run typecheck && npm run format:lint && gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "format:lint": "prettier \"src/**/*.{ts,tsx}\" --check",
     "format:write": "prettier \"src/**/*.{ts,tsx}\" --write",
