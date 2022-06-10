@@ -23,19 +23,19 @@ export default function Page(props: { pageType?: "stylized"; children: any }) {
           className={`max-w-screen-lg container m-w-auto flex flex-row items-stretch`}
         >
           <div className="flex flex-row">
-            <div className="bg-tertiary-100 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-50 lg:my-[48px] md:my-[24px]"></div>
-            <div className="bg-tertiary-200 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-100 lg:my-[32px] md:my-[16px]"></div>
-            <div className="bg-tertiary-300 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-200 lg:my-[16px] md:my-[8px]"></div>
+            <div className="bg-tertiary-100 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-50 lg:my-[48px] sm:my-[24px]"></div>
+            <div className="bg-tertiary-200 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-100 lg:my-[32px] sm:my-[16px]"></div>
+            <div className="bg-tertiary-300 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-200 lg:my-[16px] sm:my-[8px]"></div>
           </div>
           <div
             className={`flex-1 shadow-lg shadow-tertiary-700 border-neutral-300 border-x z-10 ${bg}`}
           >
-            <div className="border-b border-neutral-200 sticky top-0 left-0 z-50 bg-neutral-50 overflow-x-hidden">
-              <div className="overflow-auto max-w-[100vw] p-3 ">
+            <div className="border-b border-neutral-200 sm:sticky sm:top-0 sm:left-0 z-50 bg-neutral-50 overflow-x-hidden">
+              <div className="overflow-auto max-w-[100vw]">
                 <Nav />
               </div>
             </div>
-            <div className="md:mx-3 lg:mx-6 lg:mt-2 overflow-auto ">
+            <div className="sm:mx-3 lg:mx-6 lg:mt-2 overflow-auto ">
               {props.children}
             </div>
             <div className="max-w-screen-lg m-auto py-4 w-full">
@@ -43,9 +43,9 @@ export default function Page(props: { pageType?: "stylized"; children: any }) {
             </div>
           </div>
           <div className="flex flex-row-reverse">
-            <div className="bg-tertiary-100 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-50 lg:my-[48px] md:my-[24px]"></div>
-            <div className="bg-tertiary-200 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-100 lg:my-[32px] md:my-[16px]"></div>
-            <div className="bg-tertiary-300 lg:w-4 md:w-2 lg:border-y-16 md:border-y-8 border-tertiary-200 lg:my-[16px] md:my-[8px]"></div>
+            <div className="bg-tertiary-100 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-50 lg:my-[48px] sm:my-[24px]"></div>
+            <div className="bg-tertiary-200 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-100 lg:my-[32px] sm:my-[16px]"></div>
+            <div className="bg-tertiary-300 lg:w-4 sm:w-2 lg:border-y-16 sm:border-y-8 border-tertiary-200 lg:my-[16px] sm:my-[8px]"></div>
           </div>
         </div>
         <div className="flex-1"></div>
