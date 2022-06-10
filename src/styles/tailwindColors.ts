@@ -1,16 +1,7 @@
 const sizes = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
-const names = ["sand", "gray", "terracotta", "sage"];
+const names = ["tertiary", "neutral", "primary", "secondary"];
 
 let colors: ColorInfo[] | undefined;
-
-export function applyCssVariables(): void {
-  for (const info of getColorInfo()) {
-    document.documentElement.style.setProperty(
-      info.cssVarName,
-      `rgb(${info.rgb.join(", ")})`
-    );
-  }
-}
 
 /** computes color values for each combination from css value via the document */
 export function getColorInfo(): ColorInfo[] {
@@ -20,26 +11,12 @@ export function getColorInfo(): ColorInfo[] {
   const results: ColorInfo[] = [];
   for (const name of names) {
     for (const weight of sizes) {
-      const span = document.createElement("span");
-      document.body.appendChild(span);
-      span.className = `bg-${name}-${weight}`;
-      const rgb = window.getComputedStyle(span).backgroundColor;
-      span.remove();
-      const matches = rgb.match(/rgb\((\d+), (\d+), (\d+)\)/);
-      if (matches) {
-        const [r, g, b] = matches.slice(1).map((x) => Number.parseInt(x));
-        const hex = rgbToHex(r, g, b);
-        const dark = isDark(r, g, b);
-        const info: ColorInfo = {
-          name,
-          weight,
-          cssVarName: `--color-${name}-${weight}`,
-          rgb: [r, g, b],
-          hex,
-          isDark: dark,
-        };
-        results.push(info);
-      }
+      const info: ColorInfo = {
+        name,
+        weight,
+        cssVarName: `--colors-${name}-${weight}`,
+      };
+      results.push(info);
     }
   }
   if (results.length) {
@@ -67,7 +44,4 @@ export interface ColorInfo {
   name: string;
   weight: number;
   cssVarName: string;
-  rgb: [number, number, number];
-  hex: string;
-  isDark: boolean;
 }

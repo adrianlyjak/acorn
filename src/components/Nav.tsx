@@ -25,10 +25,10 @@ export default function Nav(props: {}) {
       <div className="flex-1 flex flex-row items-stretch">
         <Link to="/">
           <div className=" overflow-hidden whitespace-nowrap">
-            <div className="inline-block bg-terracotta-300 h-12 w-12 rounded-full" />
-            <div className="inline-block bg-gray-600 h-3 w-3 rounded-full ml-2 mb-1" />
-            <div className="inline-block bg-gray-600 h-3 w-3 rounded-full ml-4 mb-1" />
-            <div className="inline-block bg-gray-600 h-3 w-3 rounded-full ml-4 mb-1" />
+            <div className="inline-block bg-primary-300 h-12 w-12 rounded-full" />
+            <div className="inline-block bg-neutral-600 h-3 w-3 rounded-full ml-2 mb-1" />
+            <div className="inline-block bg-neutral-600 h-3 w-3 rounded-full ml-4 mb-1" />
+            <div className="inline-block bg-neutral-600 h-3 w-3 rounded-full ml-4 mb-1" />
           </div>
         </Link>
       </div>

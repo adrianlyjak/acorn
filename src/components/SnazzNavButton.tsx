@@ -21,7 +21,7 @@ export default function SnazzNavButton({
         className={`absolute inset-0 duration-500 ease transition transform`}
       />
       <span className="absolute bottom-.5 left-0 w-[calc(100%-8px)] block duration-500">
-        <span className="bg-gray-300 h-1 w-full block"></span>
+        <span className="bg-neutral-300 h-1 w-full block"></span>
       </span>
       <span
         className={`
@@ -42,7 +42,7 @@ export default function SnazzNavButton({
       >
         <span
           className={`
-        bg-gray-300 border-primary-300
+        bg-neutral-300 border-primary-300
         group-hover:bg-primary-500 group-hover:border-primary-100 group-hover:rotate-[1440deg]
         group-active-state:border-0 group-active-state:bg-secondary-400
         w-2 h-2 rounded-full border-t-4 

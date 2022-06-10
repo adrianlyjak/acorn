@@ -2,8 +2,8 @@
 const colors = require("tailwindcss/colors");
 const plugin = require("tailwindcss/plugin");
 
-const customColors = {
-  terracotta: {
+const themeColors = {
+  primary: {
     50: "#EDBC87",
     100: "#E5A361",
     200: "#D9873F",
@@ -15,7 +15,7 @@ const customColors = {
     800: "#4B1C0B",
     900: "#3C1406",
   },
-  sand: {
+  tertiary: {
     50: "#FFFBEB",
     100: "#FCF5D9",
     200: "#F2EAC5",
@@ -27,7 +27,7 @@ const customColors = {
     800: "#7A621F",
     900: "#654E20",
   },
-  sage: {
+  secondary: {
     50: "#DFEDE8",
     100: "#D2E6DE",
     200: "#B7D7CB",
@@ -39,6 +39,7 @@ const customColors = {
     800: "#24423D",
     900: "#1B3131",
   },
+  neutral: colors.stone,
 };
 
 module.exports = {
@@ -51,13 +52,7 @@ module.exports = {
         roman: "lower-roman",
         alpha: "lower-alpha",
       },
-      colors: {
-        primary: customColors.terracotta,
-        secondary: customColors.sage,
-        tertiary: customColors.sand,
-        gray: colors.stone,
-        ...customColors,
-      },
+      colors: themeColors,
       fontFamily: {
         body: ["sans-serif"],
         info: ["sans-serif"],
@@ -67,14 +62,21 @@ module.exports = {
         16: "16px",
       },
     },
+    variables: {
+      DEFAULT: {
+        colors: themeColors,
+      },
+    },
   },
   variants: {},
-  safelist: Object.keys(customColors)
-    .concat(["gray"])
+
+  safelist: Object.keys(themeColors)
+    .concat(["neutral"])
     .map((name) => ({ pattern: new RegExp("-" + name + "-") })),
 
   plugins: [
     require("@tailwindcss/typography"),
+    require("@mertasan/tailwindcss-variables"),
     plugin(function ({ addVariant }) {
       // Add a `third` variant, ie. `third:pb-0`
       addVariant("active-state", "&.active");

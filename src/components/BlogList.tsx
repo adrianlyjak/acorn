@@ -38,11 +38,11 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
         // const textElement = (
         //   <>
         //     <Link to={"/" + blog.fields.slug}>
-        //       <div className="flex flex-row justify-between items-baseline hover:bg-sage-100 hover:underline px-2 py-1">
+        //       <div className="flex flex-row justify-between items-baseline hover:bg-secondary-100 hover:underline px-2 py-1">
         //         <span className="text-lg font-bold">
         //           {blog.frontmatter.title}
         //         </span>
-        //         <span className="font-info text-sand-800">
+        //         <span className="font-info text-tertiary-800">
         //           {blog.frontmatter.date}
         //         </span>
         //       </div>
@@ -58,7 +58,7 @@ export default function BlogList(props: { blogs: BlogSummary[] }) {
         //     <div
         //       className={
         //         "flex flex-col items-stretch py-3 overflow-hidden " +
-        //         "border-gray-300 border-solid border-t-2 " +
+        //         "border-neutral-300 border-solid border-t-2 " +
         //         (i === props.blogs.length - 1 ? "border-b-2 " : "")
         //       }
         //     >

@@ -41,7 +41,7 @@ body ol {
 
 body hr {
   @apply my-3;
-  @apply border-gray-400;
+  @apply border-neutral-400;
 }
 
 /** 
@@ -119,14 +119,14 @@ body pre {
 }
 
 body code {
-  @apply text-gray-700;
+  @apply text-neutral-700;
   @apply text-sm;
 }
 
 body pre {
   @apply overflow-auto;
   @apply leading-tight;
-  @apply bg-sand-200;
+  @apply bg-tertiary-200;
   @apply p-2;
   @apply text-sm;
   @apply rounded-sm;
@@ -139,9 +139,9 @@ body pre {
 body blockquote {
   @apply px-3;
   @apply my-6;
-  @apply text-gray-600;
+  @apply text-neutral-600;
   @apply border-l-4;
-  @apply border-gray-500;
+  @apply border-neutral-500;
 }
 
 /** 
@@ -182,7 +182,7 @@ body table td {
   @apply py-2;
   @apply px-3;
   @apply border;
-  @apply border-sand-300;
+  @apply border-tertiary-300;
 }
 
 body table tr {
@@ -190,7 +190,7 @@ body table tr {
 }
 
 body table tr:nth-child(2n) {
-  @apply bg-sand-50;
+  @apply bg-tertiary-50;
 }
 
 /** utility 

@@ -4,7 +4,7 @@ import { throttle } from "lodash";
 import "./InteractiveEmoji.css";
 
 export function InteractiveEmoji() {
-  const svg = useRef<SVGSVGElement>((null as any) as SVGSVGElement);
+  const svg = useRef<SVGSVGElement>(null as any as SVGSVGElement);
 
   useEffect(() => {
     document.body.classList.add("fly");

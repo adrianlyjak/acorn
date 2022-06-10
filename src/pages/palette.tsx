@@ -31,17 +31,30 @@ export default function Palette(): React.ReactElement {
   );
 }
 
+function round(number: number, modulo: number = 100) {
+  const mod = number % modulo;
+  return number - mod;
+}
+
 function ColorBlock({
-  info: { name: color, weight: value, hex },
+  info: { name: color, weight: value },
 }: {
   info: ColorInfo;
 }): React.ReactElement {
-  const textValue = value > 500 ? 300 : value > 300 ? 800 : 600;
+  let textValue;
+  if (value < 600) {
+    textValue = Math.min(900, round(value + 600));
+  } else {
+    textValue = Math.max(50, round(value - 600));
+  }
+
   return (
     <div
       className={`h-10 bg-${color}-${value} grid place-items-center text-${color}-${textValue}`}
     >
-      <span className={`inline-block text-xs`}>{hex.toUpperCase()}</span>
+      <span className={`inline-block font-bold text-xs lg:text-[.5rem]`}>
+        {color}-{value}
+      </span>
     </div>
   );
 }

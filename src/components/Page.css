@@ -3,8 +3,8 @@
     345deg,
     white 0%,
     white 15%,
-    var(--color-gray-100) 30%,
+    var(--colors-neutral-100) 30%,
     white 30%,
-    var(--color-gray-100) 100%
+    var(--colors-neutral-100) 100%
   );
 }
