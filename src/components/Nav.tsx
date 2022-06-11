@@ -21,7 +21,7 @@ const pages: { label: string; to: string }[] = [
 export default function Nav(props: {}) {
   const title = useSiteTitle();
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between flex-nowrap">
       <div className="sm:p-2 p-1 pt-2">
         <Link to="/">
           <Logo />
@@ -31,7 +31,7 @@ export default function Nav(props: {}) {
         {pages.map(({ label, to }) => {
           return (
             <Link key={to} to={to} activeClassName="active group">
-              <SnazzNavButton className="text-center whitespace-no-wrap">
+              <SnazzNavButton className="text-center whitespace-no-wrap ml-1">
                 {label}
               </SnazzNavButton>
             </Link>
