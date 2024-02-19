@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import { default as Layout } from "../../components/Page.astro";
+import BlogList from "../../components/BlogList.astro";
+import { Page, PaginateFunction } from "astro";
+import { Post, ContentWrapper } from "../../types/Post";
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const blogEntries = (await getCollection("posts")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  return paginate(blogEntries, { pageSize: 20 });
+}
+
+export interface Props {
+  page: Page<ContentWrapper<Post>>;
+}
+
+const props = Astro.props;
+---
+
+<Layout>
+  <BlogList page={props.page} />
+</Layout>

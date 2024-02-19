@@ -1,0 +1,14 @@
+---
+import Page from "../components/Page.astro";
+import PageCard from "../components/PageCard.astro";
+import BlackHole from "../components/BlackHole.astro";
+---
+
+<Page title="Not Found">
+  <PageCard>
+    <p class="text-4xl text-center">Sorry, this page doesn't exist.</p>
+    <div class="flex justify-center items-center">
+      <BlackHole />
+    </div>
+  </PageCard>
+</Page>

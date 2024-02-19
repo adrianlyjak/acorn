@@ -7,3 +7,6 @@ public/
 .DS_Store
 yarn-error.log
 coverage
+.pnpm-store
+pnpm-lock.yaml
+dist

@@ -1,0 +1,19 @@
+---
+import { InteractiveEmoji } from "../components/InteractiveEmoji";
+import Page from "../components/Page.astro";
+import PageCard from "../components/PageCard.astro";
+---
+
+<Page
+  pageType="stylized"
+  title="Under Construction"
+  activePathName="/construction/"
+>
+  <PageCard>
+    <h1 class="text-8xl mb-3">Sorry!</h1>
+    <h2 class="text-4xl">This site is under construction</h2>
+    <div class="flex justify-center items-center">
+      <InteractiveEmoji client:only="react" />
+    </div>
+  </PageCard>
+</Page>

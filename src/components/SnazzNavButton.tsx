@@ -20,7 +20,7 @@ export default function SnazzNavButton({
       onClick={onClick}
     >
       <span
-        className={`absolute inset-0 duration-500 ease transition transform`}
+        className={`absolute inset-0 duration-250 ease transition transform`}
       />
       {/* inactive dull underline bg */}
       <span
@@ -39,7 +39,7 @@ export default function SnazzNavButton({
       w-0 h-[0.125rem]
       bg-secondary-300
       group-hover:w-[calc(100%-0.5rem)] group-active-state:w-[calc(100%-0.5rem)]
-      duration-500
+      duration-250
       `}
       />
       {/* rolling ball container */}
@@ -55,13 +55,13 @@ export default function SnazzNavButton({
           className={`
          flex-grow-0
          group-hover:flex-grow group-active-state:flex-grow
-         duration-500 ease transition-all
+         duration-250 ease transition-all
       `}
         />
         {/* rolling ball */}
         <span
           className={`
-        duration-500 ease transition
+        duration-250 ease transition
         bg-primary-500 border-primary-200
         group-hover:bg-secondary-500 group-hover:border-secondary-200 group-hover:rotate-[1440deg]
         group-active-state:bg-secondary-500 group-active-state:border-secondary-200 group-active-state:rotate-[1440deg]

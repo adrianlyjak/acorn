@@ -1,26 +1,18 @@
 import * as React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { ContentWrapper } from "../types/Post";
+import { Page } from "astro";
 
 export default function BlogPagination({
-  pageIndex,
+  page,
 }: {
   // zero based
-  pageIndex: number;
+  page: Page<ContentWrapper<any>>;
 }) {
-  const previous = pageIndex > 0;
-  const data = useStaticQuery(allblogs);
-  const total = data.allMarkdownRemark.edges.length;
-  const pageSize = data.site.siteMetadata.pageSize as number;
-  const totalPages = Math.ceil(total / pageSize);
-  const complete = pageIndex + 1 >= totalPages;
-  const next = !complete;
   return (
     <div className="font-info w-full flex flex-row justify-center items-center">
-      <MaybeLink to={previous ? `/posts/${pageIndex - 1}` : undefined}>
-        ←
-      </MaybeLink>
-      <span className="inline-block">page {pageIndex + 1}</span>
-      <MaybeLink to={next ? `/posts/${pageIndex + 1}` : undefined}>→</MaybeLink>
+      <MaybeLink to={page.url.prev}>←</MaybeLink>
+      <span className="inline-block">page {page.currentPage}</span>
+      <MaybeLink to={page.url.next}>→</MaybeLink>
     </div>
   );
 }
@@ -34,31 +26,12 @@ function MaybeLink({
 }) {
   const classes = "py-2 px-6 inline-block text-3xl";
   return to ? (
-    <Link className={`${classes} text-secondary-500`} to={to}>
+    <a className={`${classes} text-secondary-500`} href={to}>
       {children}
-    </Link>
+    </a>
   ) : (
     <span className={`${classes} text-tertiary-300 cursor-not-allowed`}>
       {children}
     </span>
   );
 }
-
-const allblogs = graphql`
-  query AllBlogs {
-    site {
-      siteMetadata {
-        pageSize
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;

@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Page from "../../components/Page.astro";
+import PageCard from "../../components/PageCard.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("posts");
+  return blogEntries.map((entry) => {
+    return {
+      params: { slug: entry.slug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Page title={entry.data.title}>
+  <PageCard>
+    <h1 class="m-0 leading-snug text-4xl font-bold">
+      {entry.data.title}
+    </h1>
+    <div class="text-sm text-mode-info mb-8">
+      {
+        entry.data.date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      }
+    </div>
+    <Content />
+  </PageCard>
+</Page>
