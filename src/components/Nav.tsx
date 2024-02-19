@@ -1,7 +1,7 @@
-import { Link } from "gatsby";
 import * as React from "react";
 import SnazzNavButton from "./SnazzNavButton";
-import useSiteTitle from "./useSiteTitle";
+import "../styles/typography.css";
+import "../styles/index.css";
 
 const pages: { label: string; to: string }[] = [
   {
@@ -18,23 +18,26 @@ const pages: { label: string; to: string }[] = [
   },
 ];
 
-export default function Nav(props: {}) {
-  const title = useSiteTitle();
+export default function Nav(props: { activePath?: string }) {
   return (
     <div className="flex flex-row justify-between flex-nowrap">
       <div className="sm:p-2 p-1 pt-2">
-        <Link to="/">
+        <a href="/">
           <Logo />
-        </Link>
+        </a>
       </div>
       <div className="flex flex-row sm:p-4 sm:pt-6 p-1">
         {pages.map(({ label, to }) => {
           return (
-            <Link key={to} to={to} activeClassName="active group">
+            <a
+              key={to}
+              href={to}
+              className={to === props.activePath ? "active group" : ""}
+            >
               <SnazzNavButton className="text-center whitespace-no-wrap ml-1">
                 {label}
               </SnazzNavButton>
-            </Link>
+            </a>
           );
         })}
       </div>

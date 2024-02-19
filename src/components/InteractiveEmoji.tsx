@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 import * as React from "react";
-import { throttle } from "lodash";
 import "./InteractiveEmoji.css";
 
 export function InteractiveEmoji() {
@@ -18,7 +17,7 @@ export function InteractiveEmoji() {
         const rightEye = curr.querySelector("#right-eye") as SVGCircleElement;
         const leftPupil = curr.querySelector("#left-pupil") as SVGCircleElement;
         const rightPupil = curr.querySelector(
-          "#right-pupil"
+          "#right-pupil",
         ) as SVGCircleElement;
 
         const leftPosition = getOffset(leftEye, event);
@@ -40,9 +39,39 @@ export function InteractiveEmoji() {
   );
 }
 
+function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number,
+): (...funcArgs: Parameters<T>) => void {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  let lastExec = 0;
+
+  const throttledFunction = (...args: Parameters<T>) => {
+    const now = Date.now();
+    const timeSinceLastExec = now - lastExec;
+    const execute = () => {
+      lastExec = now;
+      func(...args);
+    };
+
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+
+    if (timeSinceLastExec >= wait) {
+      execute();
+    } else {
+      timeoutId = setTimeout(execute, wait - timeSinceLastExec);
+    }
+  };
+
+  return throttledFunction;
+}
+
 function getOffset(
   el: SVGCircleElement,
-  cursor: MouseEvent
+  cursor: MouseEvent,
 ): { x: number; y: number } {
   const rect = el.getBoundingClientRect();
   const r = rect.width / 2;

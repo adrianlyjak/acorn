@@ -1,0 +1,61 @@
+---
+import Nav from "./Nav";
+
+export interface PageProps {
+  pageType?: "stylized";
+  title: string;
+  activePathName?: string;
+}
+
+const props = Astro.props as PageProps;
+
+const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50";
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{props.title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABjElEQVQ4T21T0W3CMBD1Oep/pS4AE0BBSA1fbARW56gIG3SU/pRUqoTCBHSDLtD4+s72OQ5gCcWc7717fncmc7Xa3XzCvd0aog1VZs5yzqYzhj7I/B3qpvspIVT+Obplg8A2xgDldIyPR8RKlLlZNyenuEzQuoVUmUlFDSpIuHLQ9CB56NbN97OQhNyjW6Ayhco9ftUYgYhQyRINqo8P6/1pR3JnQ9Uln0iO5jNKW7lKEF/KSCz9lI5uheo+VM+SU7EAkWDGRn26oPRAX27VsfWzjNbqgrK4oWACi40pSaF2h1q3DPuwsPPARLeBS25mARrM0qyhT7eQ1MKedNWB1vhCzLXBUBDbl1XopjTz5jAFLJ9h4tDCwSzGfRmqBvfl/jof4Ysj9jCx3U0mTE8XskjxZbs8SITiun2pV/Dj0fjpMEiMQRoNturWDkQ6NZsrDNIbBknTxl6o4DuMQRCf6/1pLtjxY3qFHz6O9D3hEpfhecEIa+GbEuE5kxVpm6E7fK7wnPvfvqnfx8/5H5MeqW2lXosvAAAAAElFTkSuQmCC"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <style>
+      .bg-stylized {
+        background: linear-gradient(
+          345deg,
+          white 0%,
+          white 15%,
+          var(--colors-neutral-100) 30%,
+          white 30%,
+          var(--colors-neutral-100) 100%
+        );
+      }
+      @media screen and (max-width: 640px) {
+      }
+    </style>
+    <div
+      class="w-full min-h-full bg-tertiary-100 flex flex-row items-stretch justify-center selection:bg-secondary-400 text-neutral-900 font-body"
+    >
+      <div
+        class={`max-w-screen-lg w-screen-lg container flex-1 m-w-auto border-tertiary-300 border-x z-10 ${bg}`}
+      >
+        <div
+          class="border-b border-neutral-200 sm:sticky sm:top-0 sm:left-0 z-50 bg-neutral-50 overflow-x-hidden"
+        >
+          <div class="overflow-auto max-w-[100vw]">
+            <Nav activePath={props.activePathName} />
+          </div>
+        </div>
+        <div class="sm:mx-3 lg:mx-6 lg:mt-2 overflow-auto">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -44,7 +44,7 @@ const themeColors = {
 
 module.exports = {
   // purge: ["./src/**/*.css", "./src/**/*.tsx"],
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       listStyleType: {
@@ -68,11 +68,6 @@ module.exports = {
       },
     },
   },
-  variants: {},
-
-  safelist: Object.keys(themeColors)
-    .concat(["neutral"])
-    .map((name) => ({ pattern: new RegExp("-" + name + "-") })),
 
   plugins: [
     require("@tailwindcss/typography"),
