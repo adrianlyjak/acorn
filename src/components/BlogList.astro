@@ -1,25 +1,32 @@
 ---
-import { Page } from "astro";
 import { ContentWrapper, Post } from "../types/Post";
-import "./BlogList.css";
-import Card from "./Card";
-import BlogPagination from "./BlogPagination";
 export interface Props {
-  page: Page<ContentWrapper<Post>>;
+  page: ContentWrapper<Post>[];
 }
 
 const { page } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+<style>
+  .blog-summary-img {
+    height: 60%;
+  }
+
+  .blog-summary-img > img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+  }
+</style>
+<div class="grid grid-cols-1 gap-4">
   {
-    page.data.map((blog, i) => {
+    page.map((blog, i) => {
       const imageUrl = blog.data.featuredimage?.src;
       return (
         <a href={"/p/" + blog.slug}>
-          <Card className="h-full">
+          <div class="overflow-auto p-2 h-full">
             <article>
-              <div class="text-lg font-bold">{blog.data.title}</div>
+              <div class="text-2xl font-bold">{blog.data.title}</div>
               <div class="text-mode-info text-sm">
                 {blog.data.date.toLocaleDateString("en-US", {
                   year: "numeric",
@@ -27,23 +34,21 @@ const { page } = Astro.props;
                   day: "numeric",
                 })}
               </div>
-              {imageUrl ? (
+              {imageUrl && (
                 <div class="relative mt-2 pb-[50%] ">
                   <img
                     class="absolute h-full w-full object-cover rounded-md"
                     src={imageUrl}
                   />
                 </div>
-              ) : (
-                <div class="flex-auto max-h-36 mt-2 leading-6 overflow-hidden relative overflow-ellipsis overflow-clip line-clamp-5 text-justify px-2">
-                  {blog.data.description}
-                </div>
               )}
+              <div class="flex-auto max-h-36 mt-2 leading-6 overflow-hidden relative overflow-ellipsis overflow-clip line-clamp-5 text-justify">
+                {blog.data.description}
+              </div>
             </article>
-          </Card>
+          </div>
         </a>
       );
     })
   }
 </div>
-<BlogPagination page={page} />

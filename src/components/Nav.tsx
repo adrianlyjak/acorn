@@ -5,16 +5,12 @@ import "../styles/index.css";
 
 const pages: { label: string; to: string }[] = [
   {
-    label: "Example",
-    to: "/p/markdown/",
+    label: "About",
+    to: "/about",
   },
   {
-    label: "Construction",
-    to: "/construction/",
-  },
-  {
-    label: "Palette",
-    to: "/palette/",
+    label: "Posts",
+    to: "/page-1",
   },
 ];
 
@@ -32,7 +28,11 @@ export default function Nav(props: { activePath?: string }) {
             <a
               key={to}
               href={to}
-              className={to === props.activePath ? "active group" : ""}
+              className={
+                to.replace(/\/$/g, "") === props.activePath?.replace(/\/$/g, "")
+                  ? "active group"
+                  : ""
+              }
             >
               <SnazzNavButton className="text-center whitespace-no-wrap ml-1">
                 {label}

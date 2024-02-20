@@ -9,7 +9,7 @@ export interface PageProps {
 
 const props = Astro.props as PageProps;
 
-const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50";
+const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50 dark:bg-neutral-900";
 ---
 
 <html>
@@ -36,17 +36,28 @@ const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50";
           var(--colors-neutral-100) 100%
         );
       }
-      @media screen and (max-width: 640px) {
+      @media (prefers-color-scheme: dark) {
+        .bg-stylized {
+        background: linear-gradient(
+          345deg,
+          var(--colors-neutral-900) 0%,
+          var(--colors-neutral-800) 15%,
+          var(--colors-neutral-800) 30%,
+          var(--colors-neutral-900) 30%,
+          var(--colors-neutral-800) 100%
+        );
       }
+      }
+
     </style>
     <div
-      class="w-full min-h-full bg-tertiary-100 flex flex-row items-stretch justify-center selection:bg-secondary-400 text-neutral-900 font-body"
+      class="w-full min-h-screen bg-tertiary-100 dark:bg-black flex flex-row items-stretch justify-center selection:bg-secondary-400 text-neutral-900 font-body"
     >
       <div
-        class={`max-w-screen-lg w-screen-lg container flex-1 m-w-auto border-tertiary-300 border-x z-10 ${bg}`}
+        class={`max-w-screen-md w-screen-md container flex-1 m-w-auto border-tertiary-300 dark:border-neutral-700 border-x z-10 ${bg} dark:text-neutral-100`}
       >
         <div
-          class="border-b border-neutral-200 sm:sticky sm:top-0 sm:left-0 z-50 bg-neutral-50 overflow-x-hidden"
+          class="border-b border-tertiary-300 dark:border-neutral-700 sm:sticky sm:top-0 sm:left-0 z-50 bg-neutral-50 dark:bg-neutral-900 overflow-x-hidden"
         >
           <div class="overflow-auto max-w-[100vw]">
             <Nav activePath={props.activePathName} />

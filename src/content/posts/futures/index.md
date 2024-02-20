@@ -2,6 +2,7 @@
 title: Async Scala with Futures
 date: 2022-06-04
 description: "Common syntactical pitfalls with async futures in scala"
+published: false
 ---
 
 # Writing code with Futures

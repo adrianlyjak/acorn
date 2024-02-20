@@ -7,6 +7,7 @@ export const getPostSchema = (input: { image: ImageFunction }) =>
     date: z.date(),
     description: z.string(),
     featuredimage: input.image().optional(),
+    published: z.boolean().default(true),
     // author: z.string(),
     // image: z.object({
     //   url: z.string(),

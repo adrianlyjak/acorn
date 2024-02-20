@@ -3,6 +3,7 @@ title: Markdown Sample Page
 date: 2020-07-04
 description: "Example Markdown Rendering"
 featuredimage: ./smol-cat.jpg
+published: false
 ---
 
 ## Paragraph

@@ -17,6 +17,15 @@ body p a,
   @apply text-primary-500;
 }
 
+@media (prefers-color-scheme: dark) {
+  body p a,
+  .link {
+    @apply border-neutral-600;
+    @apply border-b-4;
+    @apply text-primary-200;
+  }
+}
+
 body p a:hover,
 .link:hover,
 body p a:active,
@@ -142,6 +151,11 @@ body blockquote {
   @apply text-neutral-600;
   @apply border-l-4;
   @apply border-neutral-500;
+}
+@media (prefers-color-scheme: dark) {
+  body blockquote {
+    @apply text-neutral-300;
+  }
 }
 
 /** 

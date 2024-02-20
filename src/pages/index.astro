@@ -1,3 +1,31 @@
 ---
-return Astro.redirect("/posts/1");
+import { getCollection } from "astro:content";
+import { default as Layout } from "../components/Page.astro";
+import BlogList from "../components/BlogList.astro";
+import { MaybeLink } from "../components/BlogPagination";
+import { Page, PaginateFunction } from "astro";
+import { Post, ContentWrapper } from "../../types/Post";
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
+  const blogEntries = (await getCollection("posts")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  return paginate(blogEntries, { pageSize: 20 });
+}
+
+const posts = (await getCollection("posts", x => x.data.published)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const thisPage = posts.slice(0, 60);
+const hasMore = posts.length > 60;
 ---
+
+<Layout title="Adrian Lyjak" activePathName={"/"}>
+  <BlogList page={thisPage} />
+  {hasMore && <MaybeLink to="/page-4">More</MaybeLink>}
+</Layout>

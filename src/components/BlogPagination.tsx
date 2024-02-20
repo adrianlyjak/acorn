@@ -17,7 +17,7 @@ export default function BlogPagination({
   );
 }
 
-function MaybeLink({
+export function MaybeLink({
   to,
   children,
 }: {

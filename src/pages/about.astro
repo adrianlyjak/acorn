@@ -1,0 +1,15 @@
+---
+import Page from "../components/Page.astro";
+import PageCard from "../components/PageCard.astro";
+import About from "../misc/about/index.md";
+import { InteractiveEmoji } from "../components/InteractiveEmoji";
+---
+
+<Page pageType="stylized" title="Adrian Lyjak" activePathName="/about">
+  <PageCard>
+    <About />
+    <div class="flex justify-center items-center">
+      <InteractiveEmoji client:only="react" />
+    </div>
+  </PageCard>
+</Page>

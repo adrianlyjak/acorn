@@ -8,8 +8,6 @@ export default function Card({
   className?: string;
 }) {
   return (
-    <div className={`overflow-auto p-2 lg:p-4 ${className || ""}`}>
-      {children}
-    </div>
+    <div className={`overflow-auto p-2 ${className || ""}`}>{children}</div>
   );
 }

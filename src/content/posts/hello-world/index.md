@@ -3,6 +3,7 @@ title: Hello World
 date: 2015-05-01
 description: Hello World
 featuredimage: ./screenshot-from-2020-04-04-21-23-46.png
+published: true
 ---
 
 This is my first post on my new fake blog! How exciting!
