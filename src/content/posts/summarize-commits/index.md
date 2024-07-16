@@ -2,7 +2,7 @@
 title: Summarizing commit history
 date: 2024-07-12
 description: I wanted to review what I worked on for the last decade, so I wrote a script to read all 13000 commits.
-published: false
+published: true
 ---
 I wanted to review what I worked on for the last decade, so I wrote a script to read all 13000 commits.
 

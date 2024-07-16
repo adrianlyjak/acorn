@@ -2,7 +2,7 @@
 title: Underclocking GPU
 date: 2024-07-15
 description: My GPUs crash during extended use
-published: false
+published: true
 ---
 My GPUs crash my whole computer when they run for too long at full capacity. I have a watercooled set-up with dual 3090s. They normally operate at 370W. I've been told that underclocking (undervolting?) them by 25% helps them stabilize, while only reducing overall performance around 5%.
 
