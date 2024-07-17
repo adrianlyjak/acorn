@@ -90,11 +90,11 @@ body h6 {
 }
 
 body h1 {
-  @apply text-5xl;
+  @apply text-3xl;
 }
 
 body h2 {
-  @apply text-4xl;
+  @apply text-3xl;
 }
 
 body h3 {
