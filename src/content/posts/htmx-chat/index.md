@@ -5,9 +5,7 @@ description: How to stream interfaces efficiently using htmx
 published: true
 ---
 
-# Building a Streaming Chat Interface with HTMX
-
-There are many simple examples of building rudimentary streaming interfaces with HTMX. These examples usually just update a single element and completely overwrite the element's content periodically. I wanted to create a UI that was a little more full featured, and more efficient with the amount of data streamed. 
+There are many simple examples of building rudimentary streaming interfaces with HTMX. These examples usually just update a single element and completely overwrite the element's content periodically. I wanted to create a UI that was a little more full featured, and more efficient with the amount of data streamed.
 
 This is a tutorial for building a barebones chat interface that demonstrates how to do this. Full code on [github](https://github.com/adrianlyjak/htmx-python-chat)
 
@@ -19,20 +17,20 @@ First, let's look at the HTML structure required for our chat interface:
 
 ```html
 <html>
-    <head>
-        <title>Example HTMX chat</title>
-        <script src="https://unpkg.com/htmx.org@1.9.0"></script>
-        <script src="https://unpkg.com/htmx-ext-ws@2.0.0/ws.js"></script>
-    </head>
-    <body>
-        <main hx-ext="ws" ws-connect="/ws/chat">
-            <div id="game-content"><i>Nothing to see here</i></div>
-            <form ws-send="game-input">
-                <input name="game-input" id="game-input" placeholder="Type a message" />
-                <button type="submit">Send</button>
-            </form>
-        </main>
-    </body>
+  <head>
+    <title>Example HTMX chat</title>
+    <script src="https://unpkg.com/htmx.org@1.9.0"></script>
+    <script src="https://unpkg.com/htmx-ext-ws@2.0.0/ws.js"></script>
+  </head>
+  <body>
+    <main hx-ext="ws" ws-connect="/ws/chat">
+      <div id="game-content"><i>Nothing to see here</i></div>
+      <form ws-send="game-input">
+        <input name="game-input" id="game-input" placeholder="Type a message" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </body>
 </html>
 ```
 
@@ -53,7 +51,7 @@ Now, let's dive into how we handle WebSocket responses to create a dynamic chat 
 After sending a message, we clear the input field:
 
 ```html
-<input value="" name="game-input" id="game-input"/>
+<input value="" name="game-input" id="game-input" />
 ```
 
 This HTML snippet is sent via WebSocket to reset the input field after submission.
@@ -85,10 +83,10 @@ For bot responses, we use a two-step process to create a smooth typing effect:
 2. Then, we stream individual words into this placeholder:
 
    ```html
-   <div id="resp-[unique_id]" hx-swap-oob="beforeend">word </div>
+   <div id="resp-[unique_id]" hx-swap-oob="beforeend">word</div>
    ```
 
-Again, the `hx-swap-oob="beforeend"` attribute is key. It allows us to append each word to the existing message, creating a typing effect. Especially for long chat's, it's much more efficient to send single words. For example, if you're chat is 5000 words, and the LLM is responding with 5 tokens per second, that starts to be 25,000 words/s of overhead where just a few would do.
+Again, the `hx-swap-oob="beforeend"` attribute is important. It allows us to append each word to the existing message, creating a typing effect. Especially for long chat's, it's much more efficient to send single words. For example, if you're chat is 5000 words, and the LLM is responding with 5 tokens per second, that starts to be 25,000 words/s of overhead where just a few would do.
 
 ## The Python Backend
 
@@ -104,12 +102,10 @@ While we won't dig into the Python code, it's worth noting a few key aspects:
 
 ## Conclusion
 
-This example demonstrates how to create a dynamic, efficient chat interface using HTMX and WebSockets. By leveraging HTMX's out-of-band swaps and unique identifiers, we can create a smooth, responsive experience with minimal JavaScript.
+You can create a dynamic, efficient chat interface using HTMX and WebSockets. By leveraging HTMX's out-of-band swaps and unique identifiers, you can create a smooth, responsive experience with minimal JavaScript.
 
 The key takeaways are:
 
 1. Use `hx-swap-oob="beforeend"` to append new content without overwriting existing messages.
 2. Employ unique identifiers for message elements to allow targeted updates.
 3. Stream bot responses word-by-word for a more engaging interface.
-
-This approach provides a solid foundation for building more complex chat applications, integrating with AI services, or creating interactive tutorials and guides.

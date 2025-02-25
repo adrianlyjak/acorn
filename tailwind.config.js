@@ -51,15 +51,44 @@ module.exports = {
         none: "none",
         roman: "lower-roman",
         alpha: "lower-alpha",
+        circle: "circle",
       },
       colors: themeColors,
       fontFamily: {
-        body: ["sans-serif"],
-        info: ["sans-serif"],
-        display: ["sans-serif"],
+        body: ["Charter", "Palatino", "Georgia", "serif"],
+        mono: [
+          "JetBrains Mono",
+          "IBM Plex Mono",
+          "Menlo",
+          "Consolas",
+          "Monaco",
+          "Liberation Mono",
+          "monospace",
+        ],
+        display: [
+          "JetBrains Mono",
+          "IBM Plex Mono",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
+        info: [
+          "JetBrains Mono",
+          "IBM Plex Mono",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
       },
       borderWidth: {
         16: "16px",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "65ch",
+          },
+        },
       },
     },
     variables: {

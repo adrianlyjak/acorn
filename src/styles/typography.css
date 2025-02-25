@@ -1,28 +1,69 @@
 /** 
+ * Base typography
+ */
+body {
+  @apply font-body;
+  @apply leading-relaxed;
+  @apply text-neutral-800;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply text-neutral-200;
+  }
+}
+
+/** 
+ * Paragraphs and text flow
+ */
+body p {
+  @apply mb-4;
+  @apply leading-relaxed;
+  @apply max-w-prose;
+}
+
+body p,
+body ul,
+body ol {
+  @apply text-base;
+}
+
+/** 
  * emphasis
  */
-
 body strong {
   @apply font-bold;
+  @apply text-neutral-900;
+}
+
+@media (prefers-color-scheme: dark) {
+  body strong {
+    @apply text-neutral-100;
+  }
+}
+
+body em {
+  @apply italic;
 }
 
 /** 
  * anchors
  */
-
 body p a,
 .link {
-  @apply border-white;
-  @apply border-b-4;
-  @apply text-primary-500;
+  @apply text-primary-600;
+  @apply no-underline;
+  @apply border-b-2;
+  @apply border-primary-200;
+  @apply transition-colors;
+  @apply duration-200;
 }
 
 @media (prefers-color-scheme: dark) {
   body p a,
   .link {
-    @apply border-neutral-600;
-    @apply border-b-4;
-    @apply text-primary-200;
+    @apply text-primary-300;
+    @apply border-primary-700;
   }
 }
 
@@ -31,94 +72,137 @@ body p a:hover,
 body p a:active,
 .link:active {
   @apply text-primary-800;
+  @apply border-primary-400;
 }
 
-body p {
-  @apply text-justify;
-  @apply leading-snug;
-}
-
-body p,
-body ul,
-body ol {
-  @apply mb-4;
+@media (prefers-color-scheme: dark) {
+  body p a:hover,
+  .link:hover,
+  body p a:active,
+  .link:active {
+    @apply text-primary-200;
+    @apply border-primary-500;
+  }
 }
 
 /** 
  * line rules
  */
-
 body hr {
-  @apply my-3;
-  @apply border-neutral-400;
+  @apply my-8;
+  @apply border-neutral-300;
+  @apply max-w-4xl;
+  @apply mx-auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  body hr {
+    @apply border-neutral-700;
+  }
 }
 
 /** 
  * headings
  */
-
 body h1,
 body h2,
 body h3,
 body h4,
 body h5,
 body h6 {
-  @apply tracking-normal;
-  @apply font-display;
+  @apply font-mono;
+  @apply font-bold;
+  @apply tracking-tight;
+  @apply text-neutral-900;
+  @apply leading-snug;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    @apply text-neutral-100;
+  }
 }
 
 body * + h1,
-body * + h2,
+body * + h2 {
+  @apply mt-8;
+}
+
 body * + h3 {
   @apply mt-6;
 }
+
 body h1,
 body h2,
 body h3 {
-  @apply mb-3;
+  @apply mb-4;
 }
 
 body * + h4,
 body * + h5,
 body * + h6 {
-  @apply mt-4;
+  @apply mt-5;
 }
+
 body h4,
 body h5,
 body h6 {
-  @apply mb-2;
+  @apply mb-3;
 }
 
 body h1 {
   @apply text-3xl;
+  @apply pb-2;
+  @apply border-b;
+  @apply border-neutral-200;
 }
 
 body h2 {
-  @apply text-3xl;
+  @apply text-2xl;
+  @apply pb-1;
+  @apply border-b;
+  @apply border-neutral-200;
 }
 
 body h3 {
-  @apply text-3xl;
-}
-
-body h4 {
-  @apply text-2xl;
-}
-
-body h5 {
   @apply text-xl;
 }
 
-body h6 {
+body h4 {
   @apply text-lg;
+}
+
+body h5 {
+  @apply text-base;
+}
+
+body h6 {
+  @apply text-sm;
+  @apply uppercase;
+  @apply tracking-wider;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h1 {
+    @apply border-neutral-700;
+  }
+
+  body h2 {
+    @apply border-neutral-700;
+  }
 }
 
 /** 
  * code
  */
-
 body pre {
-  overflow: auto;
+  @apply overflow-auto;
+  @apply my-6;
 }
 
 body code,
@@ -128,92 +212,182 @@ body pre {
 }
 
 body code {
-  @apply text-neutral-700;
+  @apply text-neutral-800;
+  @apply bg-tertiary-100;
+  @apply px-1.5;
+  @apply py-0.5;
+  @apply rounded;
   @apply text-sm;
+}
+
+@media (prefers-color-scheme: dark) {
+  body code {
+    @apply text-neutral-200;
+    @apply bg-neutral-800;
+  }
 }
 
 body pre {
   @apply overflow-auto;
-  @apply leading-tight;
-  @apply bg-tertiary-200;
-  @apply p-2;
+  @apply leading-relaxed;
+  @apply bg-neutral-100;
+  @apply p-4;
   @apply text-sm;
-  @apply rounded-sm;
+  @apply rounded;
+  @apply border;
+  @apply border-neutral-200;
+  @apply shadow-sm;
+}
+
+@media (prefers-color-scheme: dark) {
+  body pre {
+    @apply bg-neutral-900;
+    @apply border-neutral-800;
+  }
+}
+
+body pre code {
+  @apply bg-transparent;
+  @apply p-0;
+  @apply border-0;
 }
 
 /** 
  * blockquotes 
  */
-
 body blockquote {
-  @apply px-3;
-  @apply my-6;
+  @apply pl-4;
+  @apply py-1;
+  @apply my-5;
   @apply text-neutral-600;
   @apply border-l-4;
-  @apply border-neutral-500;
+  @apply border-tertiary-400;
+  @apply italic;
+  @apply bg-tertiary-50;
+  @apply rounded-r;
 }
+
 @media (prefers-color-scheme: dark) {
   body blockquote {
     @apply text-neutral-300;
+    @apply border-tertiary-700;
+    @apply bg-neutral-800;
   }
+}
+
+body blockquote p {
+  @apply mb-3;
+}
+
+body blockquote p:last-child {
+  @apply mb-0;
 }
 
 /** 
  * lists 
  */
-
 body ul {
   @apply list-disc;
-  @apply pl-8;
+  @apply pl-6;
+  @apply mb-4;
 }
+
 body ol {
   @apply list-decimal;
-  @apply pl-8;
+  @apply pl-6;
+  @apply mb-4;
 }
 
 body ol ol {
   @apply list-alpha;
+  @apply mt-2;
 }
+
 body ol ol ol {
   @apply list-roman;
+  @apply mt-2;
+}
+
+body ul ul,
+body ol ul {
+  @apply list-circle;
+  @apply mt-2;
+}
+
+body li {
+  @apply mb-1.5;
+}
+
+body li:last-child {
+  @apply mb-0;
 }
 
 /** 
  * tables 
  */
 body table {
-  @apply block;
   @apply w-full;
-  @apply my-3;
+  @apply my-6;
+  @apply border-collapse;
+  @apply text-base;
 }
 
 body table th {
   @apply font-bold;
+  @apply text-left;
+  @apply bg-tertiary-100;
+  @apply text-neutral-900;
+}
+
+@media (prefers-color-scheme: dark) {
+  body table th {
+    @apply bg-neutral-800;
+    @apply text-neutral-100;
+  }
 }
 
 body table th,
 body table td {
-  @apply py-2;
-  @apply px-3;
+  @apply py-3;
+  @apply px-4;
   @apply border;
-  @apply border-tertiary-300;
+  @apply border-neutral-300;
+}
+
+@media (prefers-color-scheme: dark) {
+  body table th,
+  body table td {
+    @apply border-neutral-700;
+  }
 }
 
 body table tr {
   @apply bg-white;
 }
 
+@media (prefers-color-scheme: dark) {
+  body table tr {
+    @apply bg-neutral-900;
+  }
+}
+
 body table tr:nth-child(2n) {
   @apply bg-tertiary-50;
 }
 
-/** utility 
-TODO - probably a better / more composable way to do this with tailwind
-*/
+@media (prefers-color-scheme: dark) {
+  body table tr:nth-child(2n) {
+    @apply bg-neutral-800;
+  }
+}
+
+/** utility classes */
 .text-mode-info {
-  @apply font-info;
+  @apply font-mono;
   @apply uppercase;
   @apply font-medium;
+  @apply text-sm;
+  @apply tracking-wider;
 }
 
 /** line clamping */
@@ -221,6 +395,7 @@ TODO - probably a better / more composable way to do this with tailwind
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  @apply overflow-hidden;
 }
 
 .text-indent {

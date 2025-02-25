@@ -17,32 +17,58 @@ const { page } = Astro.props;
     height: 60%;
     object-fit: cover;
   }
+
+  .blog-item {
+    border-bottom: 1px solid var(--colors-neutral-200);
+    transition: background-color 0.2s ease;
+  }
+
+  .blog-item:hover {
+    background-color: var(--colors-tertiary-50);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .blog-item {
+      border-bottom: 1px solid var(--colors-neutral-800);
+    }
+    .blog-item:hover {
+      background-color: var(--colors-neutral-900);
+    }
+  }
 </style>
-<div class="grid grid-cols-1 gap-4">
+
+<div class="grid grid-cols-1 gap-1">
   {
     page.map((blog, i) => {
       const imageUrl = blog.data.featuredimage?.src;
       return (
-        <a href={"/p/" + blog.slug}>
-          <div class="overflow-auto p-2 h-full">
+        <a href={"/p/" + blog.slug} class="no-underline">
+          <div class="blog-item overflow-auto p-4 h-full">
             <article>
-              <div class="text-2xl font-bold">{blog.data.title}</div>
-              <div class="text-mode-info text-sm">
-                {blog.data.date.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+              <div class="flex flex-col gap-1">
+                <h3 class="text-xl font-mono font-bold m-0">
+                  {blog.data.title}
+                </h3>
+                <div class="text-mode-info text-sm text-neutral-600 dark:text-neutral-400">
+                  {blog.data.date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </div>
               </div>
+
               {imageUrl && (
-                <div class="relative mt-2 pb-[50%] ">
+                <div class="relative mt-3 pb-[40%]">
                   <img
-                    class="absolute h-full w-full object-cover rounded-md"
+                    class="absolute h-full w-full object-cover rounded-sm border border-neutral-200 dark:border-neutral-800"
                     src={imageUrl}
+                    alt={blog.data.title}
                   />
                 </div>
               )}
-              <div class="flex-auto max-h-36 mt-2 leading-6 overflow-hidden relative overflow-ellipsis overflow-clip line-clamp-5 text-justify">
+
+              <div class="flex-auto mt-3 leading-relaxed overflow-hidden relative overflow-ellipsis overflow-clip line-clamp-3">
                 {blog.data.description}
               </div>
             </article>

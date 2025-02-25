@@ -19,18 +19,24 @@ const { Content } = await entry.render();
 
 <Page title={entry.data.title}>
   <PageCard>
-    <h1 class="m-0 leading-snug text-4xl font-bold">
-      {entry.data.title}
-    </h1>
-    <div class="text-sm text-mode-info mb-8">
-      {
-        entry.data.date.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })
-      }
-    </div>
+    <header
+      class="mb-10 pb-4 border-b border-neutral-200 dark:border-neutral-800"
+    >
+      <h1 class="m-0 mb-3 leading-tight text-3xl font-mono font-bold">
+        {entry.data.title}
+      </h1>
+      <div
+        class="text-sm text-mode-info text-neutral-600 dark:text-neutral-400"
+      >
+        {
+          entry.data.date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+        }
+      </div>
+    </header>
     <Content />
   </PageCard>
 </Page>
