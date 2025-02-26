@@ -130,11 +130,11 @@ body h6 {
 
 body * + h1,
 body * + h2 {
-  @apply mt-8;
+  @apply mt-10;
 }
 
 body * + h3 {
-  @apply mt-6;
+  @apply mt-8;
 }
 
 body h1,
@@ -146,7 +146,7 @@ body h3 {
 body * + h4,
 body * + h5,
 body * + h6 {
-  @apply mt-5;
+  @apply mt-6;
 }
 
 body h4,
@@ -167,33 +167,58 @@ body h2 {
   @apply pb-1;
   @apply border-b;
   @apply border-neutral-200;
+  @apply text-neutral-800;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h2 {
+    @apply text-neutral-200;
+  }
 }
 
 body h3 {
   @apply text-xl;
+  @apply text-neutral-800;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h3 {
+    @apply text-neutral-200;
+  }
 }
 
 body h4 {
   @apply text-lg;
+  @apply text-neutral-700;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h4 {
+    @apply text-neutral-300;
+  }
 }
 
 body h5 {
   @apply text-base;
+  @apply text-neutral-700;
+}
+
+@media (prefers-color-scheme: dark) {
+  body h5 {
+    @apply text-neutral-300;
+  }
 }
 
 body h6 {
   @apply text-sm;
   @apply uppercase;
   @apply tracking-wider;
+  @apply text-neutral-600;
 }
 
 @media (prefers-color-scheme: dark) {
-  body h1 {
-    @apply border-neutral-700;
-  }
-
-  body h2 {
-    @apply border-neutral-700;
+  body h6 {
+    @apply text-neutral-400;
   }
 }
 

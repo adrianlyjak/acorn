@@ -9,7 +9,10 @@ export interface PageProps {
 
 const props = Astro.props as PageProps;
 
-const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50 dark:bg-neutral-900";
+const bg =
+  props.pageType === "stylized"
+    ? "bg-stylized"
+    : "bg-neutral-50 dark:bg-neutral-900";
 ---
 
 <html>
@@ -38,17 +41,16 @@ const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50 dark:b
       }
       @media (prefers-color-scheme: dark) {
         .bg-stylized {
-        background: linear-gradient(
-          345deg,
-          var(--colors-neutral-900) 0%,
-          var(--colors-neutral-800) 15%,
-          var(--colors-neutral-800) 30%,
-          var(--colors-neutral-900) 30%,
-          var(--colors-neutral-800) 100%
-        );
+          background: linear-gradient(
+            345deg,
+            var(--colors-neutral-900) 0%,
+            var(--colors-neutral-800) 15%,
+            var(--colors-neutral-800) 30%,
+            var(--colors-neutral-900) 30%,
+            var(--colors-neutral-800) 100%
+          );
+        }
       }
-      }
-
     </style>
     <div
       class="w-full min-h-screen bg-tertiary-100 dark:bg-black flex flex-row items-stretch justify-center selection:bg-secondary-400 text-neutral-900 font-body"
@@ -66,6 +68,46 @@ const bg = props.pageType === "stylized" ? "bg-stylized" : "bg-neutral-50 dark:b
         <div class="sm:mx-3 lg:mx-6 lg:mt-2 overflow-auto">
           <slot />
         </div>
+
+        <!-- Footer -->
+        <footer
+          class="border-t border-tertiary-300 dark:border-neutral-700 mt-8 py-6 px-4 sm:px-6"
+        >
+          <div class="flex justify-center space-x-6">
+            <a
+              href="https://x.com/rnges_us"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+            >
+              (X)itter
+            </a>
+            <a
+              href="https://www.linkedin.com/in/adrian-lyjak-2bb87935/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://bsky.app/profile/rnges.us"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+            >
+              Bluesky
+            </a>
+            <a
+              href="https://github.com/adrianlyjak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+            >
+              GitHub
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
   </body>
